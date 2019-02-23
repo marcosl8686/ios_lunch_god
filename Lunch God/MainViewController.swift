@@ -46,7 +46,7 @@ class MainViewController: UIViewController {
         eventStore.requestAccess(to: .event) { (granted, error) in
             if (granted) && (error == nil) {
                 print("granted \(granted)")
-                print("error \(error)")
+                print("error \(error!)")
                 
                 let event: EKEvent = EKEvent(eventStore: eventStore)
                 event.title = "Add Event Title"
@@ -62,7 +62,7 @@ class MainViewController: UIViewController {
                 print("Save Event Working. \(Date())")
                 
             } else {
-                print("Error!: \(error)")
+                print("Error!: \(error!)")
             }
         }
         

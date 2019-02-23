@@ -41,7 +41,7 @@ class RegisterViewController: UIViewController {
             } else {
                 print("registration Succesful!")
                 
-                self.performSegue(withIdentifier: "goToCalendar", sender: self)
+                self.performSegue(withIdentifier: "goToFirstPage", sender: self)
             }
         }
         
