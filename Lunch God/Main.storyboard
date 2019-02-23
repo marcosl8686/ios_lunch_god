@@ -404,7 +404,7 @@
         <!--My List-->
         <scene sceneID="ykf-0V-2a9">
             <objects>
-                <tableViewController id="JAk-iO-194" sceneMemberID="viewController">
+                <tableViewController id="JAk-iO-194" customClass="MyListTableViewController" customModule="Flash_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fIU-lB-9x0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -429,7 +429,13 @@
                             <outlet property="delegate" destination="JAk-iO-194" id="e0P-kK-r4V"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My List" id="ukz-rc-JoS"/>
+                    <navigationItem key="navigationItem" title="My List" id="ukz-rc-JoS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2h9-mI-j8t">
+                            <connections>
+                                <action selector="AddListBtn:" destination="JAk-iO-194" id="22f-mS-opl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2aC-5M-7XJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
