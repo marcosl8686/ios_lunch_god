@@ -14,6 +14,7 @@ class MyListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.parent?.title = "My List"
     }
 
 }

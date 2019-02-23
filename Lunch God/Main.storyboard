@@ -70,7 +70,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="qIL-hP-GCy"/>
                     <connections>
-                        <segue destination="JAk-iO-194" kind="push" identifier="goToFirstPage" id="8ZD-YA-Bbb"/>
+                        <segue destination="ZlU-v1-cSY" kind="push" identifier="goToFirstPage" id="8ZD-YA-Bbb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1I-xB-PqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -158,7 +158,7 @@
                     <connections>
                         <outlet property="emailTextfield" destination="M1R-HS-xgc" id="EZN-co-Khq"/>
                         <outlet property="passwordTextfield" destination="SYb-Xx-USU" id="pWb-Ds-G8q"/>
-                        <segue destination="JAk-iO-194" kind="push" identifier="goToFirstPage" id="PlX-lW-Ees"/>
+                        <segue destination="ZlU-v1-cSY" kind="push" identifier="goToFirstPage" id="PlX-lW-Ees"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMZ-W7-skD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -236,7 +236,7 @@
                     <connections>
                         <outlet property="emailTextfield" destination="ZWF-xv-G1L" id="A9I-P9-2rL"/>
                         <outlet property="passwordTextfield" destination="zuQ-XP-4Q7" id="FBf-fZ-iYp"/>
-                        <segue destination="JAk-iO-194" kind="push" identifier="goToFirstPage" id="Ffk-he-abj"/>
+                        <segue destination="ZlU-v1-cSY" kind="push" identifier="goToFirstPage" id="Ffk-he-abj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewD-vV-GoZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -256,7 +256,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WpY-IA-acB" userLabel="Compose View">
-                                <rect key="frame" x="0.0" y="728" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="679" width="375" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Message" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4K-YF-skl">
                                         <rect key="frame" x="8" y="10" width="305" height="30"/>
@@ -288,7 +288,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7eI-kw-TVm" userLabel="Message Table View">
-                                <rect key="frame" x="0.0" y="88" width="375" height="640"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="591"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="jHH-VD-leb">
@@ -313,6 +313,11 @@
                             <constraint firstAttribute="trailing" secondItem="7eI-kw-TVm" secondAttribute="trailing" id="z26-fa-Hmy"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Chat" image="message-7" id="hel-mG-85L" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <connections>
+                            <outlet property="animation" destination="b3M-3z-1pm" id="y9r-s1-Fv7"/>
+                        </connections>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Flash Chat" id="OGj-fw-WBv">
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="mz9-8w-6zi">
                             <connections>
@@ -329,8 +334,34 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <customObject id="b3M-3z-1pm" customClass="RAMFlipLeftTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="3495" y="-35"/>
+            <point key="canvasLocation" x="3484" y="273"/>
+        </scene>
+        <!--Add Item-->
+        <scene sceneID="EWP-dJ-b9H">
+            <objects>
+                <viewController id="OaV-Qn-Pyj" customClass="AddItemViewController" customModule="Flash_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ijU-VP-WbX"/>
+                        <viewControllerLayoutGuide type="bottom" id="ep6-0F-UgP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="huZ-ak-R3W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Add Item" image="paper-piece-plus-7" id="iau-7k-4eu" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <connections>
+                            <outlet property="animation" destination="9js-wI-WjK" id="wep-KM-amz"/>
+                        </connections>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="gPp-qu-3i9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mWW-OJ-Y67" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="9js-wI-WjK" customClass="RAMFlipTopTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
+            </objects>
+            <point key="canvasLocation" x="3041" y="1012"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kGX-IT-aXC">
@@ -352,7 +383,7 @@
             </objects>
             <point key="canvasLocation" x="-534.39999999999998" y="10.794602698650676"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Add New-->
         <scene sceneID="tVq-Ra-xIH">
             <objects>
                 <viewController id="34G-BO-cAQ" customClass="MainViewController" customModule="Flash_Chat" customModuleProvider="target" sceneMemberID="viewController">
@@ -365,7 +396,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLv-Ke-GlC">
-                                <rect key="frame" x="16" y="702" width="343" height="39"/>
+                                <rect key="frame" x="16" y="609" width="343" height="39"/>
                                 <color key="backgroundColor" red="1" green="0.5535746468720657" blue="0.16143309858433663" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Add Event">
@@ -376,7 +407,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick a Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gey-GR-x2c">
-                                <rect key="frame" x="16" y="158" width="343" height="30"/>
+                                <rect key="frame" x="16" y="202" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -392,14 +423,20 @@
                             <constraint firstItem="rhb-kJ-Izp" firstAttribute="top" secondItem="RLv-Ke-GlC" secondAttribute="bottom" constant="37" id="rN2-MH-da7"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Add New" image="paper-piece-plus-7" id="ZrG-4i-3G0" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <connections>
+                            <outlet property="animation" destination="OHa-LG-12w" id="cMk-To-Gk5"/>
+                        </connections>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="dod-PF-x8V"/>
                     <connections>
                         <outlet property="datePickerTextField" destination="Gey-GR-x2c" id="Wrl-nG-xuk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyy-qG-Oki" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="OHa-LG-12w" customClass="RAMFlipBottomTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="2809" y="92"/>
+            <point key="canvasLocation" x="3815" y="-644"/>
         </scene>
         <!--My List-->
         <scene sceneID="ykf-0V-2a9">
@@ -429,24 +466,56 @@
                             <outlet property="delegate" destination="JAk-iO-194" id="e0P-kK-r4V"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My List" id="ukz-rc-JoS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2h9-mI-j8t">
-                            <connections>
-                                <action selector="AddListBtn:" destination="JAk-iO-194" id="22f-mS-opl"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <tabBarItem key="tabBarItem" title="My List" image="text-list-7" id="Qvd-cJ-Vtb" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <connections>
+                            <outlet property="animation" destination="IUy-r9-6rz" id="z1r-Vf-hhz"/>
+                        </connections>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="My List" id="ukz-rc-JoS"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="34G-BO-cAQ" kind="push" identifier="goToAddItem" id="z4u-JR-5Jb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2aC-5M-7XJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="IUy-r9-6rz" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="1993" y="92"/>
+            <point key="canvasLocation" x="2921" y="-446"/>
+        </scene>
+        <!--Animated Tab Bar Controller-->
+        <scene sceneID="ogh-2h-5lI">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZlU-v1-cSY" customClass="RAMAnimatedTabBarController" customModule="RAMAnimatedTabBarController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="W5K-Mh-YXN">
+                        <barButtonItem key="rightBarButtonItem" title="Calendar" image="calendar-7" id="lWH-6v-K4y"/>
+                    </navigationItem>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vrW-bD-hPR">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="JAk-iO-194" kind="relationship" relationship="viewControllers" id="Vio-2n-eD8"/>
+                        <segue destination="OaV-Qn-Pyj" kind="relationship" relationship="viewControllers" id="5cp-12-Gv0"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="sZJ-Yc-ll4"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zjs-EP-qYm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1992.8" y="91.625615763546804"/>
         </scene>
     </scenes>
     <resources>
         <image name="bg1" width="960" height="600"/>
+        <image name="calendar-7" width="30" height="30"/>
+        <image name="message-7" width="30" height="30"/>
+        <image name="paper-piece-plus-7" width="30" height="30"/>
         <image name="pizza-slices-food" width="960" height="600"/>
+        <image name="text-list-7" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PlX-lW-Ees"/>
+        <segue reference="Ffk-he-abj"/>
     </inferredMetricsTieBreakers>
 </document>
