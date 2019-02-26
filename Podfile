@@ -14,5 +14,6 @@ pod 'SVProgressHUD'
 pod 'ChameleonFramework'
 pod 'SwipeCellKit'
 pod 'RAMAnimatedTabBarController'
+pod 'YelpAPI'
 
 end
