@@ -10,8 +10,12 @@ import UIKit
 import EventKit
 
 class MainViewController: UIViewController {
-    
+    @IBOutlet weak var detailsFoodView: DetailsFoodView!
     @IBOutlet weak var datePickerTextField: UITextField!
+    
+    
+    
+    
     private var datePicker: UIDatePicker?
     
     override func viewDidLoad() {
