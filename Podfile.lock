@@ -1,4 +1,7 @@
 PODS:
+  - Alamofire (4.8.1)
+  - AlamofireImage (3.5.0):
+    - Alamofire (~> 4.8)
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
@@ -66,21 +69,29 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.1)
   - leveldb-library (1.20)
+  - Moya (12.0.1):
+    - Moya/Core (= 12.0.1)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - RAMAnimatedTabBarController (4.0.1)
+  - Result (4.1.0)
   - SVProgressHUD (2.2.5)
   - SwipeCellKit (2.5.1)
   - YelpAPI (3.0.0)
 
 DEPENDENCIES:
+  - AlamofireImage
   - ChameleonFramework
   - Firebase
   - Firebase/Auth
   - Firebase/Database
+  - Moya
   - RAMAnimatedTabBarController
   - SVProgressHUD
   - SwipeCellKit
@@ -88,6 +99,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
     - ChameleonFramework
     - Firebase
     - FirebaseAnalytics
@@ -100,13 +113,17 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - leveldb-library
+    - Moya
     - nanopb
     - RAMAnimatedTabBarController
+    - Result
     - SVProgressHUD
     - SwipeCellKit
     - YelpAPI
 
 SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Firebase: 749a8ff4962f9d8c79dda1966de20f6f77583d67
   FirebaseAnalytics: d35d47c03c50c73c14a7fd31463c5775843e78a9
@@ -119,12 +136,14 @@ SPEC CHECKSUMS:
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   RAMAnimatedTabBarController: 677d6f7ec7e88b1089486f4db49b0a5067e8ad1c
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwipeCellKit: 30fd6a4f8a8b8ac864ea389c8b4c8bac5ba5471a
   YelpAPI: 9ae0ee45b998d306c1aff9b2d966dc23121f191e
 
-PODFILE CHECKSUM: 6a122877c6be116122bb77505bea5f5c39f41f8e
+PODFILE CHECKSUM: 9266f739c40496c04d5c00884079c75e2a2a4a1e
 
 COCOAPODS: 1.5.3

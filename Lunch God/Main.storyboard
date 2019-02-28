@@ -813,7 +813,7 @@
                                                 <view contentMode="scaleToFill" verticalHuggingPriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="OHm-wy-AHl">
                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="207"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6sf-cT-fX7">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="6sf-cT-fX7">
                                                             <rect key="frame" x="0.0" y="8" width="335" height="130"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
@@ -836,7 +836,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aoi-B4-OC0">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marker" translatesAutoresizingMaskIntoConstraints="NO" id="aoi-B4-OC0">
                                                                             <rect key="frame" x="38.333333333333314" y="0.0" width="24" height="24"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="24" id="4rv-po-B73"/>
@@ -929,9 +929,11 @@
         <image name="bg1" width="960" height="600"/>
         <image name="calendar-7" width="30" height="30"/>
         <image name="location-permission" width="1073" height="968"/>
+        <image name="marker" width="24" height="24"/>
         <image name="message-7" width="30" height="30"/>
         <image name="paper-piece-plus-7" width="30" height="30"/>
         <image name="pizza-slices-food" width="960" height="600"/>
+        <image name="placeholder" width="343" height="153"/>
         <image name="text-list-7" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
