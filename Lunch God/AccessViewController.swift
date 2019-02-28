@@ -10,12 +10,27 @@ import UIKit
 
 class AccessViewController: UIViewController {
     @IBOutlet weak var accessView: AccessView!
+    var locationService: LocationServices?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         accessView.didTapAllow = {[weak self] in
-            print("OK")
+            self?.locationService?.requestLocationAuthorization()
         }
-        // Do any additional setup after loading the view.
+        
+        locationService?.didChangeStatus = {[weak self] success in
+            if success {
+                self?.locationService?.getLocation()
+            }
+        }
+        locationService?.newLocation = {[weak self] result in
+            switch result {
+            case .success(let location):
+                print(location)
+            case .failure(let error):
+                print("Error getting the users location \(error)")
+            }
+        }
     }
 }
