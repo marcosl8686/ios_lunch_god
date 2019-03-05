@@ -10,28 +10,29 @@ import UIKit
 
 class MyListTableViewController: UITableViewController {
     
-    var viewModels = [RestaurantListViewModel]() {
-        didSet{
-            tableView.reloadData()
-        }
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.parent?.title = "My List"
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModels.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myListCell", for: indexPath) as! RestaurantTableViewCell
-        let vm = viewModels[indexPath.row]
-        cell.configure(with: vm)
-        
-        return cell
-    }
+//    var viewModels = [RestaurantListViewModel]() {
+//        didSet{
+//            print("SET 2")
+//            tableView.reloadData()
+//        }
+//    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        self.parent?.title = "My List"
+//    }
+//
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return viewModels.count
+//    }
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "myListCell", for: indexPath) as! RestaurantTableViewCell
+//        let vm = viewModels[indexPath.row]
+//        cell.configure(with: vm)
+//
+//        return cell
+//    }
 
 }

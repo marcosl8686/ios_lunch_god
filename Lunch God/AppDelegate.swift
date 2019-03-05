@@ -42,20 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func loadBusiness() {
-        service.request(.search(lat: 29.973330, long: -95.687332)) { (result) in
-            switch result {
-            case .success(let response):
-                let root = try? self.jsonDecoder.decode(Root.self, from: response.data)
-                print("ROOT: \(root)")
-                let viewModel = root?.businesses.compactMap(RestaurantListViewModel.init)
-                if let nav = self.window.rootViewController as? UINavigationController,
-                    let myListTableViewController = nav.topViewController as? MyListTableViewController {
-                        myListTableViewController.viewModels = viewModel ?? []
-                }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
+        print("Loaded")
     }
     
 
