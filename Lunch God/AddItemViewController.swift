@@ -9,9 +9,11 @@
 import UIKit
 import Firebase
 import SVProgressHUD
+import Moya
 
 class AddItemViewController: UIViewController, UITextFieldDelegate {
     var yelpSearch : [MyListDB] = [MyListDB]()
+    let service = MoyaProvider<YelpService.BusinessProvider>()
 
     @IBOutlet weak var yelpSearchBar: UITextField!
     override func viewDidLoad() {
@@ -35,6 +37,15 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func yelpSendBtn(_ sender: Any) {
+        service.request(.search(lat: 29.973330, long: -95.687332)) { (result) in
+            switch result {
+            case .success(let response):
+                print(try? JSONSerialization.jsonObject(with: response.data, options:[]))
+                
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
     }
     
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="8Ny-HH-lhf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -549,6 +549,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="w26-XG-9cC" kind="relationship" relationship="rootViewController" id="zVv-In-YsK"/>
+                        <segue destination="JAk-iO-194" kind="push" identifier="goToMyList" id="geN-1j-f8J"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nv2-mt-Fbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -568,7 +569,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLv-Ke-GlC">
-                                <rect key="frame" x="16" y="646" width="343" height="39"/>
+                                <rect key="frame" x="16" y="739" width="343" height="39"/>
                                 <color key="backgroundColor" red="1" green="0.5535746468720657" blue="0.16143309858433663" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Add Event">
@@ -579,7 +580,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick a Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gey-GR-x2c">
-                                <rect key="frame" x="0.0" y="591" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="684" width="375" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="tqP-cz-hHH"/>
                                 </constraints>
@@ -588,7 +589,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7e-zg-mgA">
-                                <rect key="frame" x="0.0" y="140" width="375" height="451"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="640"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LIM-6B-fTP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="960"/>
@@ -741,7 +742,7 @@
                                 </constraints>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="180" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="yIn-5e-eCe">
-                                <rect key="frame" x="168" y="353" width="39" height="37"/>
+                                <rect key="frame" x="168" y="257" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.75949871540000002" green="0.21259197590000001" blue="0.1794299483" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pageControl>
@@ -789,7 +790,7 @@
         <!--My List-->
         <scene sceneID="ykf-0V-2a9">
             <objects>
-                <tableViewController id="JAk-iO-194" customClass="MyListTableViewController" customModule="Flash_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="JAk-iO-194" customClass="MyListTableViewController" customModule="Flash_Chat" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fIU-lB-9x0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -885,9 +886,6 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My List" id="ukz-rc-JoS"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="34G-BO-cAQ" kind="push" identifier="goToAddItem" id="z4u-JR-5Jb"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2aC-5M-7XJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -938,5 +936,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8ZD-YA-Bbb"/>
+        <segue reference="geN-1j-f8J"/>
     </inferredMetricsTieBreakers>
 </document>
