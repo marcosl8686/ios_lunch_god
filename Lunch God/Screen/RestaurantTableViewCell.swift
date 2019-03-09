@@ -28,6 +28,7 @@ class RestaurantTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func configure(with viewModel: RestaurantListViewModel) {
+        print("Updating with \(viewModel)")
         restaurantImaveView.af_setImage(withURL: viewModel.imageUrl)
         restaurantNameLabel.text = viewModel.name
         locationLabel.text = viewModel.distance

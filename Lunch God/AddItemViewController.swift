@@ -25,21 +25,24 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         searchTableView.delegate = self
         searchTableView.dataSource = self
         //TODO: Set yourself as the delegate of the text field here:
         yelpSearchBar.delegate = self
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-        super.viewDidLoad()
+        searchTableView.register(UINib(nibName: "yelpSearchCell", bundle: nil), forCellReuseIdentifier: "yelpCustomCell")
+        searchTableView.separatorStyle = .none
+        configureTableView()
         self.parent?.title = "Search Restaurants"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myListCell", for: indexPath) as! RestaurantTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "yelpCustomCell", for: indexPath) as! YelpSearchTableViewCell
         let vm = viewModels[indexPath.row]
         print("View Model = \(vm)")
-//        cell.configure(with: vm)
-        cell.restaurantNameLabel.text = vm.name
+        cell.YelpSearchName.text = vm.name
+        cell.YelpSearchImageView.af_setImage(withURL: vm.imageUrl)
         return cell
     }
 
@@ -47,20 +50,10 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
         return viewModels.count
     }
 
-//    @IBAction func SearchBtn(_ sender: AnyObject) {
-//        let restaurantDB = Database.database().reference().child("restaurant")
-//        let restaurantDictionary = ["restaurantName": Auth.auth().currentUser?.email, "date": Auth.auth().currentUser?.email, "imageUrl": Auth.auth().currentUser?.email, "user": Auth.auth().currentUser?.email,]
-//
-//        restaurantDB.childByAutoId().setValue(restaurantDictionary) {
-//            (error, reference) in
-//            if error != nil {
-//                print(error!)
-//            } else {
-//                print("Message saved Successfully")
-//            }
-//        }
-//
-//    }
+    func configureTableView() {
+        searchTableView.rowHeight = UITableView.automaticDimension
+        searchTableView.estimatedRowHeight = 120.0
+    }
     
     @IBAction func yelpSendBtn(_ sender: Any) {
         service.request(.search(lat: 29.973330, long: -95.687332)) { (result) in
