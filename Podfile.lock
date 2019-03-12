@@ -82,10 +82,12 @@ PODS:
   - RAMAnimatedTabBarController (4.0.1)
   - Result (4.1.0)
   - SVProgressHUD (2.2.5)
+  - SwiftyJSON (4.2.0)
   - SwipeCellKit (2.5.1)
   - YelpAPI (3.0.0)
 
 DEPENDENCIES:
+  - Alamofire
   - AlamofireImage
   - ChameleonFramework
   - Firebase
@@ -94,6 +96,7 @@ DEPENDENCIES:
   - Moya
   - RAMAnimatedTabBarController
   - SVProgressHUD
+  - SwiftyJSON
   - SwipeCellKit
   - YelpAPI
 
@@ -118,6 +121,7 @@ SPEC REPOS:
     - RAMAnimatedTabBarController
     - Result
     - SVProgressHUD
+    - SwiftyJSON
     - SwipeCellKit
     - YelpAPI
 
@@ -141,9 +145,10 @@ SPEC CHECKSUMS:
   RAMAnimatedTabBarController: 677d6f7ec7e88b1089486f4db49b0a5067e8ad1c
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   SwipeCellKit: 30fd6a4f8a8b8ac864ea389c8b4c8bac5ba5471a
   YelpAPI: 9ae0ee45b998d306c1aff9b2d966dc23121f191e
 
-PODFILE CHECKSUM: 9266f739c40496c04d5c00884079c75e2a2a4a1e
+PODFILE CHECKSUM: 5e955baf95bb2b1326c51814119629ae37e3bbc0
 
 COCOAPODS: 1.6.1

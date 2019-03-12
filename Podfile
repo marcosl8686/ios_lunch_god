@@ -15,7 +15,9 @@ pod 'ChameleonFramework'
 pod 'SwipeCellKit'
 pod 'RAMAnimatedTabBarController'
 pod 'YelpAPI'
+pod 'Alamofire'
 pod 'AlamofireImage'
+pod 'SwiftyJSON'
 pod 'Moya'
 
 end

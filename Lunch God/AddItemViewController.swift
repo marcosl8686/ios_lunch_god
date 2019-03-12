@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import SVProgressHUD
 import Moya
+import Alamofire
+import SwiftyJSON
 
 class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     var yelpSearch : [MyListDB] = [MyListDB]()
@@ -59,10 +61,13 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
         service.request(.search(lat: 29.973330, long: -95.687332)) { (result) in
             switch result {
             case .success(let response):
+                let dataTest: JSON = JSON(response.data)
+                print("DataTest: \(dataTest)")
+                print("DataTest2: \(dataTest["businesses"][self.viewModels.count]["name"])")
                 let root = try? self.jsonDecoder.decode(Root.self, from: response.data)
+                print("ROOT: \(root)")
                 let viewModel = root?.businesses.compactMap(RestaurantListViewModel.init)
                 self.viewModels = viewModel ?? []
-                print(viewModel)
                 
             case .failure(let error):
                 print("Error: \(error)")
@@ -70,7 +75,16 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
         }
     }
     
-    
+    func getYelpResturants(url: String, parameters: [String : String]) {
+        Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
+            response in
+            if response.result.isSuccess {
+                
+            } else {
+                
+            }
+        }
+    }
     //TODO: Create the retrieveMessages method here:
     
     func retrieveMessages() {
