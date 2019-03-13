@@ -345,19 +345,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LS-cp-4kG">
-                                <rect key="frame" x="16" y="699" width="343" height="30"/>
-                                <color key="backgroundColor" red="0.23101801078518314" green="0.41742056092680724" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="yfw-A4-R6v"/>
-                                </constraints>
-                                <state key="normal" title="Add Item">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="SearchBtn:" destination="OaV-Qn-Pyj" eventType="touchUpInside" id="SFT-ub-9B5"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIO-Vr-83a" userLabel="Compose View">
                                 <rect key="frame" x="0.0" y="140" width="375" height="50"/>
                                 <subviews>
@@ -396,7 +383,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qjp-lt-rnc">
-                                <rect key="frame" x="16" y="190" width="343" height="509"/>
+                                <rect key="frame" x="16" y="190" width="343" height="539"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchTableCell" rowHeight="126" id="qgJ-1J-nq2">
@@ -412,18 +399,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="4LS-cp-4kG" firstAttribute="leading" secondItem="huZ-ak-R3W" secondAttribute="leadingMargin" id="0vG-1A-Wnd"/>
                             <constraint firstItem="qjp-lt-rnc" firstAttribute="top" secondItem="HIO-Vr-83a" secondAttribute="bottom" id="3VJ-Io-HKa"/>
                             <constraint firstItem="HIO-Vr-83a" firstAttribute="top" secondItem="ijU-VP-WbX" secondAttribute="bottom" id="7I9-KY-qBs"/>
-                            <constraint firstItem="ep6-0F-UgP" firstAttribute="top" secondItem="4LS-cp-4kG" secondAttribute="bottom" id="Fjb-zW-cgv"/>
+                            <constraint firstItem="ep6-0F-UgP" firstAttribute="top" secondItem="qjp-lt-rnc" secondAttribute="bottom" id="FMm-Rv-nXh"/>
                             <constraint firstItem="HIO-Vr-83a" firstAttribute="top" secondItem="ijU-VP-WbX" secondAttribute="bottom" id="KzK-gC-eKh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qjp-lt-rnc" secondAttribute="trailing" id="MGl-Al-med"/>
                             <constraint firstAttribute="trailing" secondItem="HIO-Vr-83a" secondAttribute="trailing" id="a7d-3S-gfL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4LS-cp-4kG" secondAttribute="trailing" id="bDa-7b-myS"/>
                             <constraint firstItem="HIO-Vr-83a" firstAttribute="leading" secondItem="huZ-ak-R3W" secondAttribute="leading" id="iWw-ri-kmu"/>
                             <constraint firstItem="HIO-Vr-83a" firstAttribute="leading" secondItem="huZ-ak-R3W" secondAttribute="leading" id="k9d-3p-RpB"/>
                             <constraint firstAttribute="trailing" secondItem="HIO-Vr-83a" secondAttribute="trailing" id="luD-IO-wVT"/>
-                            <constraint firstItem="4LS-cp-4kG" firstAttribute="top" secondItem="qjp-lt-rnc" secondAttribute="bottom" id="xVA-5E-Y9p"/>
                             <constraint firstItem="qjp-lt-rnc" firstAttribute="leading" secondItem="huZ-ak-R3W" secondAttribute="leadingMargin" id="zbW-g8-zuu"/>
                         </constraints>
                     </view>
@@ -432,6 +416,7 @@
                     <connections>
                         <outlet property="searchTableView" destination="qjp-lt-rnc" id="fba-fj-ZDw"/>
                         <outlet property="yelpSearchBar" destination="IFY-Kk-QFN" id="B6b-9G-BJI"/>
+                        <segue destination="34G-BO-cAQ" kind="push" identifier="goToAddEvent" id="daZ-4k-thG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWW-OJ-Y67" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -600,7 +585,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7e-zg-mgA">
-                                <rect key="frame" x="0.0" y="44" width="375" height="640"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="544"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LIM-6B-fTP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="960"/>
@@ -753,7 +738,7 @@
                                 </constraints>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="180" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="yIn-5e-eCe">
-                                <rect key="frame" x="168" y="257" width="39" height="37"/>
+                                <rect key="frame" x="168" y="353" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.75949871540000002" green="0.21259197590000001" blue="0.1794299483" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pageControl>
@@ -796,7 +781,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyy-qG-Oki" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="OHa-LG-12w" customClass="RAMFlipBottomTransitionItemAnimations" customModule="RAMAnimatedTabBarController"/>
             </objects>
-            <point key="canvasLocation" x="3815" y="-644"/>
+            <point key="canvasLocation" x="3892" y="1012"/>
         </scene>
         <!--My List-->
         <scene sceneID="ykf-0V-2a9">

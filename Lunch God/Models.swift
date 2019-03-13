@@ -22,6 +22,10 @@ struct Business: Codable {
         let address1: String
         let city: String
     }
+    struct Category : Codable {
+        let title: String
+    }
+    let categories: [Category]
     let location: location
 }
 
@@ -32,6 +36,7 @@ struct RestaurantListViewModel {
     let distance: String
     let price: String
     let location: String
+    let categories: String
 }
 
 extension RestaurantListViewModel {
@@ -40,8 +45,9 @@ extension RestaurantListViewModel {
         self.name = business.name
         self.id = business.id
         self.imageUrl = business.imageUrl
-        self.distance = "\(business.distance / 1609.344)"
+        self.distance = String(format: "%.2f", business.distance / 1609.344)
         self.price = business.price
         self.location = "\(business.location.address1) \(business.location.city)"
+        self.categories = business.categories[0].title
     }
 }

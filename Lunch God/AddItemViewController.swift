@@ -10,8 +10,8 @@ import UIKit
 import Firebase
 import SVProgressHUD
 import Moya
-import Alamofire
 import SwiftyJSON
+import CoreLocation
 
 class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     var yelpSearch : [MyListDB] = [MyListDB]()
@@ -39,49 +39,46 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.parent?.title = "Search Restaurants"
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "yelpCustomCell", for: indexPath) as! YelpSearchTableViewCell
         let vm = viewModels[indexPath.row]
         print("View Model = \(vm)")
         cell.YelpSearchName.text = vm.name
         cell.YelpSearchImageView.af_setImage(withURL: vm.imageUrl)
+        cell.YelpSearchPrice.text = vm.price
+        cell.YelpSearchAddress.text = vm.location
+        cell.YelpSearchDistance.text = vm.distance
+        cell.YelpSearchType.text = vm.categories
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 
     func configureTableView() {
         searchTableView.rowHeight = UITableView.automaticDimension
-        searchTableView.estimatedRowHeight = 120.0
+        searchTableView.estimatedRowHeight = 200.0
     }
     
     @IBAction func yelpSendBtn(_ sender: Any) {
-        service.request(.search(lat: 29.973330, long: -95.687332)) { (result) in
+        let coordiates = CLLocationCoordinate2D()
+        service.request(.search(lat: coordiates.latitude, long: coordiates.longitude, term: yelpSearchBar.text!)) { (result) in
             switch result {
             case .success(let response):
                 let dataTest: JSON = JSON(response.data)
-                print("DataTest: \(dataTest)")
-                print("DataTest2: \(dataTest["businesses"][self.viewModels.count]["name"])")
+                print("data: \(dataTest)")
                 let root = try? self.jsonDecoder.decode(Root.self, from: response.data)
-                print("ROOT: \(root)")
                 let viewModel = root?.businesses.compactMap(RestaurantListViewModel.init)
                 self.viewModels = viewModel ?? []
                 
             case .failure(let error):
                 print("Error: \(error)")
-            }
-        }
-    }
-    
-    func getYelpResturants(url: String, parameters: [String : String]) {
-        Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
-            response in
-            if response.result.isSuccess {
-                
-            } else {
-                
             }
         }
     }
