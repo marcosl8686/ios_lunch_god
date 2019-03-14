@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9N7-n8-qNu">
-                        <rect key="frame" x="0.0" y="10" width="424" height="220.5"/>
+                        <rect key="frame" x="0.0" y="10" width="424" height="228.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="orD-dN-36E">
-                                <rect key="frame" x="0.0" y="0.0" width="424" height="220.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="424" height="228.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ouD-ua-FyU">
                                         <rect key="frame" x="0.0" y="0.0" width="424" height="153"/>
@@ -31,7 +31,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="137" translatesAutoresizingMaskIntoConstraints="NO" id="gyF-Vc-mOU">
-                                        <rect key="frame" x="0.0" y="153" width="424" height="67.5"/>
+                                        <rect key="frame" x="0.0" y="161" width="424" height="67.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="hFK-jj-Mkq">
                                                 <rect key="frame" x="0.0" y="0.0" width="338.5" height="67.5"/>
@@ -103,7 +103,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="gyF-Vc-mOU" firstAttribute="top" secondItem="ouD-ua-FyU" secondAttribute="bottom" id="89i-QJ-8bE"/>
+                                    <constraint firstItem="gyF-Vc-mOU" firstAttribute="top" secondItem="ouD-ua-FyU" secondAttribute="bottom" constant="8" id="89i-QJ-8bE"/>
                                     <constraint firstItem="ouD-ua-FyU" firstAttribute="leading" secondItem="orD-dN-36E" secondAttribute="leading" id="aPa-f5-Taf"/>
                                     <constraint firstItem="ouD-ua-FyU" firstAttribute="top" secondItem="orD-dN-36E" secondAttribute="top" id="fge-TO-VYO"/>
                                     <constraint firstAttribute="trailing" secondItem="ouD-ua-FyU" secondAttribute="trailing" id="n9J-Fd-YKS"/>

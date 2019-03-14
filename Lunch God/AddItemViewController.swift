@@ -13,8 +13,14 @@ import Moya
 import SwiftyJSON
 import CoreLocation
 
+
+protocol ListAction: class {
+    func didTapCell(_ viewModel: RestaurantListViewModel)
+}
+
 class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     var yelpSearch : [MyListDB] = [MyListDB]()
+    var delegate: ListAction?
     let service = MoyaProvider<YelpService.BusinessProvider>()
     let jsonDecoder = JSONDecoder()
     @IBOutlet weak var yelpSearchBar: UITextField!
@@ -25,6 +31,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
             searchTableView.reloadData()
         }
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +65,17 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vm = viewModels[indexPath.row]
+        print("Tab \(vm.id)")
+        delegate?.didTapCell(vm)
+        performSegue(withIdentifier: "goToAddEvent", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! MainViewController
         
+        if let indexPath = searchTableView.indexPathForSelectedRow {
+            destinationVC.selectedRestaurant = viewModels[indexPath.row]
+        }
     }
 
     func configureTableView() {
@@ -83,7 +100,6 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
         }
     }
     //TODO: Create the retrieveMessages method here:
-    
     func retrieveMessages() {
         let restaurantDB = Database.database().reference().child("restaurants")
         

@@ -14,6 +14,7 @@ private let apiKey = "bGZz4X0o65g0mqQjrImYz62mrk3et_ygxV52mVIiipWTVztBDUhth7rghN
 enum YelpService {
     enum BusinessProvider: TargetType {
         case search(lat: Double, long: Double, term: String)
+        case details(id: String)
         
         var baseURL: URL {
             return URL(string: "https://api.yelp.com/v3/businesses")!
@@ -23,6 +24,8 @@ enum YelpService {
             switch self {
             case .search:
                 return "/search"
+            case let .details(id):
+                return "/\(id)"
             }
         }
         var method: Moya.Method {
@@ -38,6 +41,8 @@ enum YelpService {
             case let .search(lat, long, term):
                 return .requestParameters(
                     parameters: ["latitude": lat, "longitude": long, "term": term, "limit": 10], encoding: URLEncoding.queryString)
+            case .details:
+                return .requestPlain
             }
         }
         var headers: [String : String]? {

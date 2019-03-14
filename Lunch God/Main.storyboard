@@ -590,13 +590,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LIM-6B-fTP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="960"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uUu-OB-68M">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uUu-OB-68M">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="250" id="KZt-97-6EA"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="k2o-Cg-ZLi">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="k2o-Cg-ZLi">
                                                     <size key="itemSize" width="50" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -617,7 +617,7 @@
                                                 <rect key="frame" x="0.0" y="250" width="375" height="140"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="kaP-5s-Ulw">
-                                                        <rect key="frame" x="8" y="8" width="359" height="177"/>
+                                                        <rect key="frame" x="8" y="8" width="359" height="130"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2ZO-rv-Cb1">
                                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="18"/>
@@ -641,7 +641,7 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iSK-4t-wfJ">
-                                                                <rect key="frame" x="0.0" y="53" width="359" height="18"/>
+                                                                <rect key="frame" x="0.0" y="37.333333333333314" width="359" height="18"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC Query Builder 24px" translatesAutoresizingMaskIntoConstraints="NO" id="h0B-9Z-9aI">
                                                                         <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
@@ -663,7 +663,7 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pP3-23-XqH">
-                                                                <rect key="frame" x="0.0" y="106" width="359" height="18"/>
+                                                                <rect key="frame" x="0.0" y="74.666666666666686" width="359" height="18"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC Star 24px" translatesAutoresizingMaskIntoConstraints="NO" id="scl-Rq-xao">
                                                                         <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
@@ -685,7 +685,7 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7hf-TR-Xhb">
-                                                                <rect key="frame" x="0.0" y="159" width="359" height="18"/>
+                                                                <rect key="frame" x="0.0" y="112" width="359" height="18"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC Store 24px" translatesAutoresizingMaskIntoConstraints="NO" id="aQU-5v-tb1">
                                                                         <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
@@ -708,7 +708,7 @@
                                                             </stackView>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="177" id="gOU-tu-B4m"/>
+                                                            <constraint firstAttribute="height" constant="130" id="gOU-tu-B4m"/>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
@@ -725,7 +725,11 @@
                                             </mapView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="J4d-Ka-mFr" secondAttribute="bottom" id="37t-Qh-Ptj"/>
+                                            <constraint firstItem="J4d-Ka-mFr" firstAttribute="top" secondItem="NFO-L3-4aK" secondAttribute="bottom" id="Hkl-oY-jw8"/>
                                             <constraint firstAttribute="height" constant="960" id="U8Q-HE-BJY"/>
+                                            <constraint firstAttribute="trailing" secondItem="J4d-Ka-mFr" secondAttribute="trailing" id="XyZ-9d-SJB"/>
+                                            <constraint firstItem="J4d-Ka-mFr" firstAttribute="leading" secondItem="LIM-6B-fTP" secondAttribute="leading" id="lW3-eC-t2w"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -776,6 +780,7 @@
                     <navigationItem key="navigationItem" id="dod-PF-x8V"/>
                     <connections>
                         <outlet property="datePickerTextField" destination="Gey-GR-x2c" id="Wrl-nG-xuk"/>
+                        <outlet property="detailsFoodView" destination="QLQ-2Z-nAa" id="Vfm-kp-VjI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyy-qG-Oki" userLabel="First Responder" sceneMemberID="firstResponder"/>

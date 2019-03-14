@@ -11,4 +11,5 @@ class MyListDB {
     var date: String = ""
     var imageURL: String = ""
     var user: String = ""
+    var id: String = ""
 }
