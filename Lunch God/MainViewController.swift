@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var datePickerTextField: UITextField!
     let service = MoyaProvider<YelpService.BusinessProvider>()
     let jsonDecoder = JSONDecoder()
+    let toolbar = UIToolbar()
     
     var selectedRestaurant: RestaurantListViewModel? {
         didSet {
@@ -43,7 +44,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         datePicker = UIDatePicker()
-        datePicker?.datePickerMode = .date
         datePicker?.addTarget(self, action: #selector(MainViewController.dateChanged(datePicker:)), for: .valueChanged)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MainViewController.viewTapped(gestureRecognizer:)))
@@ -52,6 +52,10 @@ class MainViewController: UIViewController {
         detailsFoodView?.collectionView?.register(DetailsCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCell")
         detailsFoodView?.collectionView?.delegate = self
         detailsFoodView?.collectionView?.dataSource = self
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneClicked))
+        toolbar.setItems([doneButton], animated: true)
+        datePickerTextField.inputAccessoryView = toolbar
         
     }
     
@@ -67,6 +71,9 @@ class MainViewController: UIViewController {
         datePickerTextField.text = dateFormatter.string(from: datePicker.date)
         print("Date format from the Picker = \(datePicker.date)")
         selectedDate = datePicker.date
+    }
+    
+    @objc func doneClicked() {
         view.endEditing(true)
     }
     
@@ -79,12 +86,29 @@ class MainViewController: UIViewController {
                 event.title = self.viewModels?.name
                 event.startDate = self.selectedDate
                 event.endDate = self.selectedDate
-                event.notes = "\(Auth.auth().currentUser?.email) Picked this Restaurant"
+                event.notes = "\(Auth.auth().currentUser!.email) Picked this Restaurant"
                 event.calendar = eventStore.defaultCalendarForNewEvents
+                let alarm1hour = EKAlarm(relativeOffset: -3600)
+                event.addAlarm(alarm1hour)
+            
                 do {
                     try eventStore.save(event, span: .thisEvent)
                 } catch let error as NSError {
                     print("Error: \(error)")
+                }
+                //Add To FireBase
+                let myRestListDB = Database.database().reference().child(Auth.auth().currentUser!.uid)
+                let myRestListeDictionary = ["user": Auth.auth().currentUser!.email, "id" : self.selectedRestaurant!.id, "name": self.selectedRestaurant!.name, "imageUrl": "\(self.selectedRestaurant!.imageUrl)", "distance": self.selectedRestaurant!.distance, "price": self.selectedRestaurant!.price]
+                
+                print("Firebase Data: \(myRestListeDictionary)")
+                
+                myRestListDB.childByAutoId().setValue(myRestListeDictionary) {
+                    (error, reference) in
+                    if error != nil {
+                        print(error!)
+                    } else {
+                        print("Message saved Successfully")
+                    }
                 }
                 print("Save Event Working. \(Date())")
                 
