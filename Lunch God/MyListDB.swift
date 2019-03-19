@@ -8,8 +8,9 @@
 
 class MyListDB {
     var restaurantName: String = ""
-    var date: String = ""
     var imageURL: String = ""
     var user: String = ""
     var id: String = ""
+    var price: String = ""
+    var distance: String = ""
 }

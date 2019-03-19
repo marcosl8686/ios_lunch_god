@@ -90,9 +90,26 @@ class MainViewController: UIViewController {
                 event.calendar = eventStore.defaultCalendarForNewEvents
                 let alarm1hour = EKAlarm(relativeOffset: -3600)
                 event.addAlarm(alarm1hour)
-            
+                
+                let formatter = DateFormatter()
+                // initially set the format based on your datepicker date / server String
+                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                
+                let myDateString = formatter.string(from: self.selectedDate)
+                let myCalendarDB = Database.database().reference().child("calendarDates")
+                let myCalendarDictionary = ["user": Auth.auth().currentUser!.email, "title": self.viewModels?.name, "startDate": myDateString, "id": self.selectedRestaurant?.id, "imageUrl": "\(self.selectedRestaurant!.imageUrl)"]
+                
+                myCalendarDB.childByAutoId().setValue(myCalendarDictionary) {
+                    (error, reference) in
+                    if error != nil {
+                        print(error!)
+                    } else {
+                        print("Message saved Successfully")
+                    }
+                }
                 do {
                     try eventStore.save(event, span: .thisEvent)
+                    
                 } catch let error as NSError {
                     print("Error: \(error)")
                 }

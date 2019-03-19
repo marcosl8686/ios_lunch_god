@@ -99,28 +99,5 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
             }
         }
     }
-    //TODO: Create the retrieveMessages method here:
-    func retrieveMessages() {
-        let restaurantDB = Database.database().reference().child("restaurants")
-        
-        restaurantDB.observe(.childAdded) { (snapshot) in
-            let snapshotValue =  snapshot.value as! Dictionary<String, String>
-            
-            let restName = snapshotValue["restaurantName"]!
-            let date = snapshotValue["date"]!
-            let imageUrl = snapshotValue["imageURL"]!
-            let user = snapshotValue["user"]!
-            print(restName, date, imageUrl, user)
-            let restaurant = MyListDB()
-            restaurant.restaurantName = restName
-            restaurant.date = date
-            restaurant.imageURL = imageUrl
-            restaurant.user = user
-            
-            self.yelpSearch.append(restaurant)
-        
-            
-        }
-    }
     
 }

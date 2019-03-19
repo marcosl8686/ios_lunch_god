@@ -30,6 +30,7 @@
 		6B2ABDE12227C33E00197C9A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2ABDE02227C33E00197C9A /* Models.swift */; };
 		6B35A9EA221FD52B00DBCF4B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B35A9E9221FD52B00DBCF4B /* MainViewController.swift */; };
 		D9ADB2EACD40417430C9AD43 /* Pods_Flash_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C276FCC6CFEEE71FC341B7D /* Pods_Flash_Chat.framework */; };
+		FB1E7F1B22403EE900A2D865 /* CalendarDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1E7F1A22403EE900A2D865 /* CalendarDB.swift */; };
 		FB3A32582231CA8E0024C5FD /* yelpSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3A32572231CA8E0024C5FD /* yelpSearchCell.xib */; };
 		FB3A325A2231FD830024C5FD /* YelpSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3A32592231FD830024C5FD /* YelpSearchTableViewCell.swift */; };
 		FB4A0D222220D71800495A90 /* MyListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4A0D212220D71800495A90 /* MyListTableViewController.swift */; };
@@ -67,6 +68,7 @@
 		6C276FCC6CFEEE71FC341B7D /* Pods_Flash_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flash_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72E841FDCB640A62341EBDA5 /* Pods-Flash Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flash Chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flash Chat/Pods-Flash Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		E249E72B82745348275231CA /* Pods-Flash Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flash Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flash Chat/Pods-Flash Chat.release.xcconfig"; sourceTree = "<group>"; };
+		FB1E7F1A22403EE900A2D865 /* CalendarDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDB.swift; sourceTree = "<group>"; };
 		FB3A32572231CA8E0024C5FD /* yelpSearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = yelpSearchCell.xib; sourceTree = "<group>"; };
 		FB3A32592231FD830024C5FD /* YelpSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpSearchTableViewCell.swift; sourceTree = "<group>"; };
 		FB4A0D212220D71800495A90 /* MyListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				63E28B241B9A335300FBF6E0 /* Message.swift */,
 				6B23793A222297C9000AE7E1 /* MyListDB.swift */,
+				FB1E7F1A22403EE900A2D865 /* CalendarDB.swift */,
 				6B2ABDE02227C33E00197C9A /* Models.swift */,
 			);
 			name = Model;
@@ -374,6 +377,7 @@
 				6B25D3FD22266E170055D009 /* BaseView.swift in Sources */,
 				63E28B251B9A335300FBF6E0 /* Message.swift in Sources */,
 				6B23793D222298BC000AE7E1 /* MainTabBarController.swift in Sources */,
+				FB1E7F1B22403EE900A2D865 /* CalendarDB.swift in Sources */,
 				6321A9E21B94EBE70053D2E7 /* CustomMessageCell.swift in Sources */,
 				63E28B321B9A337600FBF6E0 /* RegisterViewController.swift in Sources */,
 				6B23793B222297C9000AE7E1 /* MyListDB.swift in Sources */,
