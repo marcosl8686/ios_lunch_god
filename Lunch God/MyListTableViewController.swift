@@ -39,7 +39,10 @@ class MyListTableViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "yelpCustomCell", for: indexPath) as! YelpSearchTableViewCell
         let vm = yelpSearch[indexPath.row]
+        let imageUrlLink = URL(string: vm.imageURL)
         cell.YelpSearchName.text = vm.restaurantName
+        cell.YelpSearchDistance.text = vm.distance
+        cell.YelpSearchImageView.af_setImage(withURL: imageUrlLink!)
 
         return cell
     }

@@ -83,10 +83,10 @@ class MainViewController: UIViewController {
         eventStore.requestAccess(to: .event) { (granted, error) in
             if (granted) && (error == nil) {
                 let event: EKEvent = EKEvent(eventStore: eventStore)
-                event.title = self.viewModels?.name
+                event.title =   "Lunch at: \(String(describing: self.viewModels?.name)) - user: \(String(Auth.auth().currentUser!.email!))"
                 event.startDate = self.selectedDate
                 event.endDate = self.selectedDate
-                event.notes = "\(Auth.auth().currentUser!.email) Picked this Restaurant"
+                event.notes = "\(Auth.auth().currentUser!.email!) Picked this Restaurant"
                 event.calendar = eventStore.defaultCalendarForNewEvents
                 let alarm1hour = EKAlarm(relativeOffset: -3600)
                 event.addAlarm(alarm1hour)
@@ -97,7 +97,7 @@ class MainViewController: UIViewController {
                 
                 let myDateString = formatter.string(from: self.selectedDate)
                 let myCalendarDB = Database.database().reference().child("calendarDates")
-                let myCalendarDictionary = ["user": Auth.auth().currentUser!.email, "title": self.viewModels?.name, "startDate": myDateString, "id": self.selectedRestaurant?.id, "imageUrl": "\(self.selectedRestaurant!.imageUrl)"]
+                let myCalendarDictionary = ["user": Auth.auth().currentUser!.email, "title": "Lunch at: \(String(describing: self.viewModels?.name)) - user: \(String(Auth.auth().currentUser!.email!))", "startDate": myDateString, "id": self.selectedRestaurant?.id, "imageUrl": "\(self.selectedRestaurant!.imageUrl)"]
                 
                 myCalendarDB.childByAutoId().setValue(myCalendarDictionary) {
                     (error, reference) in
@@ -115,7 +115,7 @@ class MainViewController: UIViewController {
                 }
                 //Add To FireBase
                 let myRestListDB = Database.database().reference().child(Auth.auth().currentUser!.uid)
-                let myRestListeDictionary = ["user": Auth.auth().currentUser!.email, "id" : self.selectedRestaurant!.id, "name": self.selectedRestaurant!.name, "imageUrl": "\(self.selectedRestaurant!.imageUrl)", "distance": self.selectedRestaurant!.distance, "price": self.selectedRestaurant!.price]
+                let myRestListeDictionary = ["user": Auth.auth().currentUser!.email, "id" : self.selectedRestaurant!.id, "name": self.selectedRestaurant!.name, "imageUrl": "\(self.selectedRestaurant!.imageUrl)", "distance": self.selectedRestaurant!.distance, "price": self.selectedRestaurant!.price, "address": self.selectedRestaurant?.location, "type": self.selectedRestaurant?.categories]
                 
                 print("Firebase Data: \(myRestListeDictionary)")
                 

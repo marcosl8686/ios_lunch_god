@@ -383,14 +383,14 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qjp-lt-rnc">
-                                <rect key="frame" x="16" y="190" width="343" height="539"/>
+                                <rect key="frame" x="0.0" y="190" width="375" height="539"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchTableCell" rowHeight="126" id="qgJ-1J-nq2">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="126"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qgJ-1J-nq2" id="uHd-IZ-Uoi">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="125.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="125.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -399,16 +399,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qjp-lt-rnc" firstAttribute="top" secondItem="HIO-Vr-83a" secondAttribute="bottom" id="3VJ-Io-HKa"/>
                             <constraint firstItem="HIO-Vr-83a" firstAttribute="top" secondItem="ijU-VP-WbX" secondAttribute="bottom" id="7I9-KY-qBs"/>
-                            <constraint firstItem="ep6-0F-UgP" firstAttribute="top" secondItem="qjp-lt-rnc" secondAttribute="bottom" id="FMm-Rv-nXh"/>
                             <constraint firstItem="HIO-Vr-83a" firstAttribute="top" secondItem="ijU-VP-WbX" secondAttribute="bottom" id="KzK-gC-eKh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qjp-lt-rnc" secondAttribute="trailing" id="MGl-Al-med"/>
+                            <constraint firstItem="qjp-lt-rnc" firstAttribute="top" secondItem="HIO-Vr-83a" secondAttribute="bottom" id="MbC-sh-X1o"/>
+                            <constraint firstItem="qjp-lt-rnc" firstAttribute="leading" secondItem="huZ-ak-R3W" secondAttribute="leading" id="Mw3-qS-hJG"/>
                             <constraint firstAttribute="trailing" secondItem="HIO-Vr-83a" secondAttribute="trailing" id="a7d-3S-gfL"/>
                             <constraint firstItem="HIO-Vr-83a" firstAttribute="leading" secondItem="huZ-ak-R3W" secondAttribute="leading" id="iWw-ri-kmu"/>
                             <constraint firstItem="HIO-Vr-83a" firstAttribute="leading" secondItem="huZ-ak-R3W" secondAttribute="leading" id="k9d-3p-RpB"/>
                             <constraint firstAttribute="trailing" secondItem="HIO-Vr-83a" secondAttribute="trailing" id="luD-IO-wVT"/>
-                            <constraint firstItem="qjp-lt-rnc" firstAttribute="leading" secondItem="huZ-ak-R3W" secondAttribute="leadingMargin" id="zbW-g8-zuu"/>
+                            <constraint firstItem="ep6-0F-UgP" firstAttribute="top" secondItem="qjp-lt-rnc" secondAttribute="bottom" id="qPy-To-zQM"/>
+                            <constraint firstAttribute="trailing" secondItem="qjp-lt-rnc" secondAttribute="trailing" id="zZR-2h-xPF"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Item" image="paper-piece-plus-7" id="iau-7k-4eu"/>
