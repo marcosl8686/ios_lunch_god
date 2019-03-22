@@ -12,4 +12,5 @@ class CalendarDB {
     var id: String = ""
     var startDate: String = ""
     var imageUrl: String = ""
+    var name: String = ""
 }

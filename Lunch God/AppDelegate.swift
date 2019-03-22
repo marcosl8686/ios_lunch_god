@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     var eventCount = 0
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         //Initialise and Configure your Firebase here:
         FirebaseApp.configure()
@@ -42,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             loadBusiness()
         }
         window.makeKeyAndVisible()
-        
         return true
     }
 
@@ -120,8 +118,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         
                     }
                 }
-                
-                
             }
         }
     }

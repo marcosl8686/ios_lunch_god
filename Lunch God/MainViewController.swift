@@ -20,12 +20,22 @@ class MainViewController: UIViewController {
     let service = MoyaProvider<YelpService.BusinessProvider>()
     let jsonDecoder = JSONDecoder()
     let toolbar = UIToolbar()
+    var comingFromSearch: Bool = false
     
     var selectedRestaurant: RestaurantListViewModel? {
         didSet {
             print("SELECTEDRESTAURANT SET!")
             if let restaurantId = selectedRestaurant {
+                comingFromSearch = true
                  loadDetails(width: restaurantId.id)
+            }
+        }
+    }
+    var selectedRestaurantMyList: MyListDB? {
+        didSet {
+            print("SELECTEDRESTAURANT SET!")
+            if let restaurantId = selectedRestaurantMyList {
+                loadDetails(width: restaurantId.id)
             }
         }
     }
@@ -39,8 +49,6 @@ class MainViewController: UIViewController {
     private var datePicker: UIDatePicker?
     
     override func viewDidLoad() {
-        
-        
         super.viewDidLoad()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         datePicker = UIDatePicker()
@@ -58,12 +66,9 @@ class MainViewController: UIViewController {
         datePickerTextField.inputAccessoryView = toolbar
         
     }
-    
-
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-    
     
     @objc func dateChanged (datePicker: UIDatePicker) {
         let dateFormatter = DateFormatter()
@@ -97,7 +102,9 @@ class MainViewController: UIViewController {
                 
                 let myDateString = formatter.string(from: self.selectedDate)
                 let myCalendarDB = Database.database().reference().child("calendarDates")
-                let myCalendarDictionary = ["user": Auth.auth().currentUser!.email, "title": "Lunch at: \(String(describing: self.viewModels?.name)) - user: \(String(Auth.auth().currentUser!.email!))", "startDate": myDateString, "id": self.selectedRestaurant?.id, "imageUrl": "\(self.selectedRestaurant!.imageUrl)"]
+                let restaurantName: String! = self.viewModels?.name ?? self.selectedRestaurantMyList?.restaurantName
+                let restaurantImageUrl = self.selectedRestaurant?.imageUrl == nil ? nil : String(describing: self.selectedRestaurant!.imageUrl)
+                let myCalendarDictionary = ["user": Auth.auth().currentUser!.email, "title": "Lunch at: \(String(describing: restaurantName!)) - user: \(String(Auth.auth().currentUser!.email!))", "startDate": myDateString, "id": self.selectedRestaurant?.id ?? self.selectedRestaurantMyList?.id, "imageUrl": restaurantImageUrl ?? self.selectedRestaurantMyList!.imageURL, "name": restaurantName]
                 
                 myCalendarDB.childByAutoId().setValue(myCalendarDictionary) {
                     (error, reference) in
@@ -109,25 +116,23 @@ class MainViewController: UIViewController {
                 }
                 do {
                     try eventStore.save(event, span: .thisEvent)
-                    
                 } catch let error as NSError {
                     print("Error: \(error)")
                 }
-                //Add To FireBase
-                let myRestListDB = Database.database().reference().child(Auth.auth().currentUser!.uid)
-                let myRestListeDictionary = ["user": Auth.auth().currentUser!.email, "id" : self.selectedRestaurant!.id, "name": self.selectedRestaurant!.name, "imageUrl": "\(self.selectedRestaurant!.imageUrl)", "distance": self.selectedRestaurant!.distance, "price": self.selectedRestaurant!.price, "address": self.selectedRestaurant?.location, "type": self.selectedRestaurant?.categories]
-                
-                print("Firebase Data: \(myRestListeDictionary)")
-                
-                myRestListDB.childByAutoId().setValue(myRestListeDictionary) {
-                    (error, reference) in
-                    if error != nil {
-                        print(error!)
-                    } else {
-                        print("Message saved Successfully")
+                if self.comingFromSearch {
+                    //Add To FireBase
+                    let myRestListDB = Database.database().reference().child(Auth.auth().currentUser!.uid)
+                    let myRestListeDictionary = ["user": Auth.auth().currentUser!.email, "id" : self.selectedRestaurant!.id, "name": self.selectedRestaurant!.name, "imageUrl": "\(self.selectedRestaurant!.imageUrl)", "distance": self.selectedRestaurant!.distance, "price": self.selectedRestaurant!.price, "address": self.selectedRestaurant?.location, "type": self.selectedRestaurant?.categories]
+                    
+                    myRestListDB.childByAutoId().setValue(myRestListeDictionary) {
+                        (error, reference) in
+                        if error != nil {
+                            print(error!)
+                        } else {
+                            print("Message saved Successfully")
+                        }
                     }
                 }
-                print("Save Event Working. \(Date())")
                 
             } else {
                 print("Error!: \(error!)")
@@ -142,9 +147,7 @@ class MainViewController: UIViewController {
             switch result {
             case .success(let response):
                 let dataTest: JSON = JSON(response.data)
-                print("data: \(dataTest)")
                 if let details = try? self.jsonDecoder.decode(Details.self, from: response.data) {
-                    print("details: \(details)")
                     self.detailsFoodView?.priceLabel?.text = details.price
                     self.detailsFoodView?.hoursLabel?.text = details.isClosed ? "Closed": "Open"
                     self.detailsFoodView?.locationLabel?.text = details.phone
@@ -155,8 +158,6 @@ class MainViewController: UIViewController {
                     self.centerMap(for: details.coordinates)
                     self.detailsFoodView?.collectionView?.reloadData()
                 }
-                
-                
             case .failure(let error):
                 print("Error: \(error)")
             }
@@ -170,8 +171,6 @@ class MainViewController: UIViewController {
         detailsFoodView?.mapView?.addAnnotation(annotation)
         detailsFoodView?.mapView?.setRegion(region, animated: true)
     }
-
-    
 }
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

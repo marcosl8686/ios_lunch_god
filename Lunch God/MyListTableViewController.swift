@@ -9,8 +9,12 @@
 import UIKit
 import Firebase
 
+protocol MyListTableAction: class {
+    func didTapCell(_ yelpSearch: MyListDB)
+}
+
 class MyListTableViewController: UITableViewController {
-    var yelpSearch : [MyListDB] = [MyListDB]() {
+    var yelpSearch = [MyListDB]() {
         didSet{
             print("DB received from FB")
             tableView.reloadData()
@@ -22,6 +26,8 @@ class MyListTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    
+    var delegate: MyListTableAction?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.parent?.title = "My List"
@@ -43,8 +49,21 @@ class MyListTableViewController: UITableViewController {
         cell.YelpSearchName.text = vm.restaurantName
         cell.YelpSearchDistance.text = vm.distance
         cell.YelpSearchImageView.af_setImage(withURL: imageUrlLink!)
-
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vm = yelpSearch[indexPath.row]
+        print("Tab \(vm.id)")
+        delegate?.didTapCell(vm)
+        performSegue(withIdentifier: "goToAddEvent", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! MainViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedRestaurantMyList = yelpSearch[indexPath.row]
+        }
     }
     
     

@@ -421,7 +421,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWW-OJ-Y67" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3040.8000000000002" y="1011.576354679803"/>
+            <point key="canvasLocation" x="2826" y="896"/>
         </scene>
         <!--Access View Controller-->
         <scene sceneID="ZWB-iV-b1G">
@@ -545,7 +545,6 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="w26-XG-9cC" kind="relationship" relationship="rootViewController" id="zVv-In-YsK"/>
-                        <segue destination="JAk-iO-194" kind="push" identifier="goToMyList" id="geN-1j-f8J"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nv2-mt-Fbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -820,10 +819,42 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My List" id="ukz-rc-JoS"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="34G-BO-cAQ" kind="push" identifier="goToAddEvent" id="fjm-OU-gui"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2aC-5M-7XJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2920.8000000000002" y="-446.30541871921184"/>
+            <point key="canvasLocation" x="2326" y="1669"/>
+        </scene>
+        <!--Schedule-->
+        <scene sceneID="Xks-Cg-Jnv">
+            <objects>
+                <tableViewController id="Bhb-6d-pph" customClass="ScheduleTableViewController" customModule="Flash_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mf6-x4-leh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nZr-Nd-fpy">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nZr-Nd-fpy" id="pqK-0Q-Y8F">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bhb-6d-pph" id="0Zu-jy-7bQ"/>
+                            <outlet property="delegate" destination="Bhb-6d-pph" id="d2z-4z-JVB"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Schedule" selectedImage="calendar-7" id="ehK-fm-WNF"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E9D-1m-fUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3505" y="-491"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="ogh-2h-5lI">
@@ -846,6 +877,7 @@
                         <segue destination="JAk-iO-194" kind="relationship" relationship="viewControllers" id="Vio-2n-eD8"/>
                         <segue destination="OaV-Qn-Pyj" kind="relationship" relationship="viewControllers" id="5cp-12-Gv0"/>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="sZJ-Yc-ll4"/>
+                        <segue destination="Bhb-6d-pph" kind="relationship" relationship="viewControllers" id="LHq-wS-aTK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zjs-EP-qYm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -868,6 +900,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8ZD-YA-Bbb"/>
-        <segue reference="geN-1j-f8J"/>
+        <segue reference="daZ-4k-thG"/>
     </inferredMetricsTieBreakers>
 </document>

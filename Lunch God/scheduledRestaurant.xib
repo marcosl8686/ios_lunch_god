@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scheduleCustomCell" rowHeight="129" id="rj5-ev-5Sw" customClass="ScheduleCell" customModule="Flash_Chat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="507" height="129"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rj5-ev-5Sw" id="DdT-cb-g0M">
+                <rect key="frame" x="0.0" y="0.0" width="507" height="128.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1p9-uk-pvO">
+                        <rect key="frame" x="3" y="0.0" width="501" height="125.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pSz-d5-yny">
+                                <rect key="frame" x="0.0" y="0.0" width="501" height="125.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125.5" id="xrW-bl-j2k"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7z-rz-Jww">
+                                <rect key="frame" x="0.0" y="0.0" width="501" height="125.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancun Juice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGH-ch-ood">
+                                        <rect key="frame" x="182.5" y="60" width="136" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="mGH-ch-ood" firstAttribute="top" secondItem="b7z-rz-Jww" secondAttribute="top" constant="60" id="5Fi-sm-ZFf"/>
+                                    <constraint firstItem="mGH-ch-ood" firstAttribute="centerY" secondItem="b7z-rz-Jww" secondAttribute="centerY" constant="16.5" id="lCo-Of-ncU"/>
+                                    <constraint firstItem="mGH-ch-ood" firstAttribute="centerX" secondItem="b7z-rz-Jww" secondAttribute="centerX" id="lqj-NL-Kzu"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday 06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdm-BR-ubM">
+                                <rect key="frame" x="8" y="8" width="149" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pSz-d5-yny" secondAttribute="trailing" id="3UM-cB-BQ7"/>
+                            <constraint firstItem="b7z-rz-Jww" firstAttribute="top" secondItem="1p9-uk-pvO" secondAttribute="top" id="90V-uo-P3j"/>
+                            <constraint firstAttribute="bottom" secondItem="b7z-rz-Jww" secondAttribute="bottom" id="B3J-Bt-g5U"/>
+                            <constraint firstItem="pSz-d5-yny" firstAttribute="top" secondItem="1p9-uk-pvO" secondAttribute="top" id="Lbl-YT-Ubn"/>
+                            <constraint firstItem="pSz-d5-yny" firstAttribute="leading" secondItem="1p9-uk-pvO" secondAttribute="leading" id="R4J-ib-kMO"/>
+                            <constraint firstAttribute="bottom" secondItem="pSz-d5-yny" secondAttribute="bottom" id="Rts-aa-SuA"/>
+                            <constraint firstItem="b7z-rz-Jww" firstAttribute="leading" secondItem="1p9-uk-pvO" secondAttribute="leading" id="aPG-9q-FTf"/>
+                            <constraint firstAttribute="trailing" secondItem="b7z-rz-Jww" secondAttribute="trailing" id="aX6-Lb-dYI"/>
+                            <constraint firstItem="vdm-BR-ubM" firstAttribute="top" secondItem="1p9-uk-pvO" secondAttribute="top" constant="8" id="kgr-2O-7VV"/>
+                            <constraint firstItem="vdm-BR-ubM" firstAttribute="leading" secondItem="1p9-uk-pvO" secondAttribute="leading" constant="8" id="l1W-Jy-W6Q"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="1p9-uk-pvO" secondAttribute="trailing" constant="3" id="Nt8-YX-ril"/>
+                    <constraint firstItem="1p9-uk-pvO" firstAttribute="top" secondItem="DdT-cb-g0M" secondAttribute="top" id="dTv-pg-QDT"/>
+                    <constraint firstItem="1p9-uk-pvO" firstAttribute="leading" secondItem="DdT-cb-g0M" secondAttribute="leading" constant="3" id="fLX-EQ-cf5"/>
+                    <constraint firstAttribute="bottom" secondItem="1p9-uk-pvO" secondAttribute="bottom" constant="3" id="zX2-mB-gaG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="scheduleDate" destination="vdm-BR-ubM" id="vlr-QV-TFn"/>
+                <outlet property="scheduleRestImage" destination="pSz-d5-yny" id="eR1-1b-jmr"/>
+                <outlet property="scheduleRestName" destination="mGH-ch-ood" id="oGe-6a-DQ0"/>
+            </connections>
+            <point key="canvasLocation" x="135.19999999999999" y="3.1484257871064472"/>
+        </tableViewCell>
+    </objects>
+</document>
