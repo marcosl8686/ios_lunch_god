@@ -18,11 +18,13 @@ protocol ListAction: class {
     func didTapCell(_ viewModel: RestaurantListViewModel)
 }
 
-class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     var yelpSearch : [MyListDB] = [MyListDB]()
     var delegate: ListAction?
     let service = MoyaProvider<YelpService.BusinessProvider>()
     let jsonDecoder = JSONDecoder()
+    let locationManager = CLLocationManager()
+    var zipCode: String = ""
     @IBOutlet weak var yelpSearchBar: UITextField!
     @IBOutlet var searchTableView: UITableView!
     var viewModels = [RestaurantListViewModel]() {
@@ -44,6 +46,11 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
         searchTableView.separatorStyle = .none
         configureTableView()
         self.parent?.title = "Search Restaurants"
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
     }
     
     
@@ -98,6 +105,36 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
                 print("Error: \(error)")
             }
         }
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[locations.count - 1]
+        if location.horizontalAccuracy > 0 {
+            locationManager.stopUpdatingLocation()
+            
+            print("Longitude= \(location.coordinate.longitude) , latitude = \(location.coordinate.latitude)")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+        
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Could Not find your location", message: "Please input your zipCode", preferredStyle:.alert)
+        let action = UIAlertAction(title: "ZipCode", style: .default) { (action) in
+            self.zipCode = textField.text!
+        }
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Zip Code"
+            textField = alertTextField
+            
+        }
+        
+        alert.addAction(action)
+        //show Alert
+        
+        present(alert, animated: true, completion: nil)
     }
     
 }

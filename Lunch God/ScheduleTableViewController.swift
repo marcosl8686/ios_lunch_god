@@ -17,8 +17,6 @@ class ScheduleTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "scheduledRestaurant", bundle: nil), forCellReuseIdentifier: "scheduleCustomCell")
@@ -34,22 +32,12 @@ class ScheduleTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCustomCell", for: indexPath) as! ScheduleCell
         let vm = calendarModel[indexPath.row]
         let imageUrlLink = URL(string: vm.imageUrl)
-        let formatter = DateFormatter()
-        // initially set the format based on your datepicker date / server String
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = formatter.date(from:vm.startDate)!
-        
-        let newFormatter = DateFormatter()
-        newFormatter.dateFormat = "EEEE d"
-        let displayDate = newFormatter.string(from: date)
-        
         cell.scheduleRestName.text = vm.name
         cell.scheduleRestImage.af_setImage(withURL: imageUrlLink!)
-        cell.scheduleDate.text = displayDate
+        cell.scheduleDate.text = vm.startDate
         return cell
     }
 
@@ -67,13 +55,25 @@ class ScheduleTableViewController: UITableViewController {
                 let date = snapshotValue["startDate"] ?? "n/a"
                 let name = snapshotValue["name"] ?? "n/a"
                 let scheduledDates = CalendarDB()
+                let todaysDate = Date()
+                let formatter = DateFormatter()
+                // initially set the format based on your datepicker date / server String
+                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                let dateFB = formatter.date(from: date)!
+                let newFormatter = DateFormatter()
+                newFormatter.dateFormat = "d EEEE"
+                let displayDate = newFormatter.string(from: dateFB)
+                
                 scheduledDates.id = restaurantId
                 scheduledDates.title = restName
-                scheduledDates.startDate = date
+                scheduledDates.startDate = displayDate
                 scheduledDates.imageUrl = imageUrl
                 scheduledDates.userEmail = user
                 scheduledDates.name = name
-                self.calendarModel.append(scheduledDates)
+                if dateFB >= todaysDate {
+                    self.calendarModel.append(scheduledDates)
+                    self.calendarModel.sort(by: {$0.startDate < $1.startDate})
+                }
             }
         }
         
