@@ -13,4 +13,6 @@ class MyListDB {
     var id: String = ""
     var price: String = ""
     var distance: String = ""
+    var address: String = ""
+    var type: String = ""
 }

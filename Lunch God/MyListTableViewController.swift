@@ -49,6 +49,8 @@ class MyListTableViewController: UITableViewController {
         cell.YelpSearchName.text = vm.restaurantName
         cell.YelpSearchDistance.text = vm.distance
         cell.YelpSearchImageView.af_setImage(withURL: imageUrlLink!)
+        cell.YelpSearchAddress.text = vm.address
+        cell.YelpSearchType.text = vm.type
         return cell
     }
     
@@ -79,6 +81,8 @@ class MyListTableViewController: UITableViewController {
             let uId = snapshotValue["id"]!
             let distance = snapshotValue["distance"]!
             let price = snapshotValue["price"]!
+            let address = snapshotValue["address"]!
+            let type = snapshotValue["type"]!
             
             print("Firebase Pulling  - \(snapshotValue)")
             let restaurant = MyListDB()
@@ -88,11 +92,11 @@ class MyListTableViewController: UITableViewController {
             restaurant.distance = distance
             restaurant.price = price
             restaurant.id = uId
+            restaurant.address = address
+            restaurant.type = type
             print("FB RestLit \(restaurant)")
-            
             self.yelpSearch.append(restaurant)
-            
-            
+
         }
     }
 

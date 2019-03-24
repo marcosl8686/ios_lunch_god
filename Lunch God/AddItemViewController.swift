@@ -25,11 +25,12 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
     let jsonDecoder = JSONDecoder()
     let locationManager = CLLocationManager()
     var zipCode: String = ""
+    var currentLatitute: Double = 33.9172
+    var currentLongitute: Double = -118.0120
     @IBOutlet weak var yelpSearchBar: UITextField!
     @IBOutlet var searchTableView: UITableView!
     var viewModels = [RestaurantListViewModel]() {
         didSet{
-            print("SET!")
             searchTableView.reloadData()
         }
     }
@@ -57,7 +58,6 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "yelpCustomCell", for: indexPath) as! YelpSearchTableViewCell
         let vm = viewModels[indexPath.row]
-        print("View Model = \(vm)")
         cell.YelpSearchName.text = vm.name
         cell.YelpSearchImageView.af_setImage(withURL: vm.imageUrl)
         cell.YelpSearchPrice.text = vm.price
@@ -73,7 +73,6 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vm = viewModels[indexPath.row]
-        print("Tab \(vm.id)")
         delegate?.didTapCell(vm)
         performSegue(withIdentifier: "goToAddEvent", sender: self)
     }
@@ -91,12 +90,10 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     @IBAction func yelpSendBtn(_ sender: Any) {
-        let coordiates = CLLocationCoordinate2D()
-        service.request(.search(lat: coordiates.latitude, long: coordiates.longitude, term: yelpSearchBar.text!)) { (result) in
+        service.request(.search(lat: currentLatitute, long: currentLongitute, term: yelpSearchBar.text!)) { (result) in
             switch result {
             case .success(let response):
                 let dataTest: JSON = JSON(response.data)
-                print("data: \(dataTest)")
                 let root = try? self.jsonDecoder.decode(Root.self, from: response.data)
                 let viewModel = root?.businesses.compactMap(RestaurantListViewModel.init)
                 self.viewModels = viewModel ?? []
@@ -107,19 +104,17 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
         }
     }
     
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[locations.count - 1]
         if location.horizontalAccuracy > 0 {
             locationManager.stopUpdatingLocation()
-            
-            print("Longitude= \(location.coordinate.longitude) , latitude = \(location.coordinate.latitude)")
+            self.currentLatitute = location.coordinate.latitude
+            self.currentLongitute = location.coordinate.longitude
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
-        
         var textField = UITextField()
         let alert = UIAlertController(title: "Could Not find your location", message: "Please input your zipCode", preferredStyle:.alert)
         let action = UIAlertAction(title: "ZipCode", style: .default) { (action) in

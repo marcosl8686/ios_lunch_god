@@ -25,7 +25,6 @@
 		6B25D40122266F090055D009 /* DetailsFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25D40022266F090055D009 /* DetailsFoodView.swift */; };
 		6B25D4032226716E0055D009 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25D4022226716E0055D009 /* RestaurantTableViewCell.swift */; };
 		6B25D405222678A50055D009 /* AccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25D404222678A50055D009 /* AccessView.swift */; };
-		6B25D407222679420055D009 /* AccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25D406222679420055D009 /* AccessViewController.swift */; };
 		6B2ABDDF2227BCFE00197C9A /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2ABDDE2227BCFE00197C9A /* NetworkServices.swift */; };
 		6B2ABDE12227C33E00197C9A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2ABDE02227C33E00197C9A /* Models.swift */; };
 		6B35A9EA221FD52B00DBCF4B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B35A9E9221FD52B00DBCF4B /* MainViewController.swift */; };
@@ -64,7 +63,6 @@
 		6B25D40022266F090055D009 /* DetailsFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFoodView.swift; sourceTree = "<group>"; };
 		6B25D4022226716E0055D009 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		6B25D404222678A50055D009 /* AccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessView.swift; sourceTree = "<group>"; };
-		6B25D406222679420055D009 /* AccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessViewController.swift; sourceTree = "<group>"; };
 		6B2ABDDE2227BCFE00197C9A /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
 		6B2ABDE02227C33E00197C9A /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		6B35A9E9221FD52B00DBCF4B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -170,7 +168,6 @@
 				6B24095E22211325002B3872 /* Flash Chat-Bridging-Header.h */,
 				6B24096122211CFF002B3872 /* AddItemViewController.swift */,
 				6B23793C222298BC000AE7E1 /* MainTabBarController.swift */,
-				6B25D406222679420055D009 /* AccessViewController.swift */,
 				FB9002D32244427E0009D36A /* ScheduleTableViewController.swift */,
 			);
 			name = Controller;
@@ -312,7 +309,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Flash Chat/Pods-Flash Chat-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Flash Chat/Pods-Flash Chat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
@@ -349,7 +346,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Flash Chat/Pods-Flash Chat-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flash Chat/Pods-Flash Chat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F2FBF0AB74D8867A03A395E1 /* [CP] Check Pods Manifest.lock */ = {
@@ -403,7 +400,6 @@
 				6B2ABDDF2227BCFE00197C9A /* NetworkServices.swift in Sources */,
 				FB4A0D222220D71800495A90 /* MyListTableViewController.swift in Sources */,
 				63E28B301B9A337600FBF6E0 /* ChatViewController.swift in Sources */,
-				6B25D407222679420055D009 /* AccessViewController.swift in Sources */,
 				6B35A9EA221FD52B00DBCF4B /* MainViewController.swift in Sources */,
 				6B2ABDE12227C33E00197C9A /* Models.swift in Sources */,
 			);

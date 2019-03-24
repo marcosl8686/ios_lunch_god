@@ -13,9 +13,7 @@ import EventKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let window = UIWindow()
-    let locationService = LocationServices()
-    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+    var window: UIWindow?
     let service = MoyaProvider<YelpService.BusinessProvider>()
     let jsonDecoder = JSONDecoder()
     var calendarModel : [CalendarDB] = [CalendarDB]() {
@@ -29,23 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Initialise and Configure your Firebase here:
         FirebaseApp.configure()
         retrieveRestList()
-        switch locationService.status {
-        case .notDetermined, .denied, .restricted:
-            let locationViewController = storyBoard.instantiateViewController(withIdentifier: "AccessViewController") as? AccessViewController
-            window.rootViewController = locationViewController
-            locationViewController?.locationService = locationService
-            window.rootViewController = locationViewController
-        default:
-            let nav = storyBoard.instantiateViewController(withIdentifier: "navBar1") as? UINavigationController
-            window.rootViewController = nav
-            loadBusiness()
-        }
-        window.makeKeyAndVisible()
         return true
-    }
-
-    private func loadBusiness() {
-        print("Loaded")
     }
     
     func retrieveRestList() {

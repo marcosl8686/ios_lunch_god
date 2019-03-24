@@ -88,7 +88,7 @@ class MainViewController: UIViewController {
         eventStore.requestAccess(to: .event) { (granted, error) in
             if (granted) && (error == nil) {
                 let event: EKEvent = EKEvent(eventStore: eventStore)
-                event.title =   "Lunch at: \(String(describing: self.viewModels?.name)) - user: \(String(Auth.auth().currentUser!.email!))"
+                event.title =   "Lunch at: \(String(describing: self.viewModels!.name)) - user: \(String(Auth.auth().currentUser!.email!))"
                 event.startDate = self.selectedDate
                 event.endDate = self.selectedDate
                 event.notes = "\(Auth.auth().currentUser!.email!) Picked this Restaurant"
@@ -116,6 +116,15 @@ class MainViewController: UIViewController {
                 }
                 do {
                     try eventStore.save(event, span: .thisEvent)
+                    //Alert Event has been added
+                    let alert = UIAlertController(title: "Event Added Successfully", message: "Your Restaurant '\(restaurantName ?? "N/A")' has been scheduled on '\(myDateString)'", preferredStyle:.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { (action) in
+                        alert.dismiss(animated: true, completion: nil)
+                    }))
+                    //show Alert
+                    
+                    self.present(alert, animated: true, completion: nil)
+                    
                 } catch let error as NSError {
                     print("Error: \(error)")
                 }
@@ -146,7 +155,6 @@ class MainViewController: UIViewController {
         service.request(.details(id: id)) { (result) in
             switch result {
             case .success(let response):
-                let dataTest: JSON = JSON(response.data)
                 if let details = try? self.jsonDecoder.decode(Details.self, from: response.data) {
                     self.detailsFoodView?.priceLabel?.text = details.price
                     self.detailsFoodView?.hoursLabel?.text = details.isClosed ? "Closed": "Open"

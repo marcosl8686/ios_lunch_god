@@ -45,7 +45,6 @@ class ScheduleTableViewController: UITableViewController {
     
     func retrieveRestList() {
         let calendarFB = Database.database().reference().child("calendarDates")
-        calendarFB.observe(.value) { (snapshot) in
             calendarFB.observe(.childAdded) { (snapshot) in
                 let snapshotValue =  snapshot.value as! Dictionary<String, String>
                 let restName = snapshotValue["title"] ?? "n/a"
@@ -75,8 +74,6 @@ class ScheduleTableViewController: UITableViewController {
                     self.calendarModel.sort(by: {$0.startDate < $1.startDate})
                 }
             }
-        }
-        
     }
     
 }
