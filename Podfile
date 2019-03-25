@@ -19,5 +19,6 @@ pod 'Alamofire'
 pod 'AlamofireImage'
 pod 'SwiftyJSON'
 pod 'Moya'
+pod 'KeychainAccess'
 
 end

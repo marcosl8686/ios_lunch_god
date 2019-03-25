@@ -204,6 +204,16 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NmD-kT-nEi">
+                                        <rect key="frame" x="16" y="219" width="343" height="30"/>
+                                        <color key="backgroundColor" red="0.35542231798171997" green="0.73622828722000122" blue="0.451710045337677" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Touch or FaceID">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchIdBtn:" destination="xYK-ej-9R9" eventType="touchUpInside" id="SEP-CB-PYe"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="282" id="1o1-zR-5Hr"/>
@@ -215,7 +225,10 @@
                                     <constraint firstItem="ZWF-xv-G1L" firstAttribute="leading" secondItem="Cr0-Ts-jsg" secondAttribute="leading" constant="16" id="WoX-TH-VcD"/>
                                     <constraint firstAttribute="trailing" secondItem="OD6-NY-DlK" secondAttribute="trailing" constant="16" id="cbh-RB-oAH"/>
                                     <constraint firstItem="OD6-NY-DlK" firstAttribute="leading" secondItem="Cr0-Ts-jsg" secondAttribute="leading" constant="16" id="lcJ-YF-8D1"/>
+                                    <constraint firstItem="NmD-kT-nEi" firstAttribute="top" secondItem="OD6-NY-DlK" secondAttribute="bottom" constant="25" id="nbY-bT-AWh"/>
+                                    <constraint firstItem="NmD-kT-nEi" firstAttribute="leading" secondItem="Cr0-Ts-jsg" secondAttribute="leading" constant="16" id="om4-4z-uVO"/>
                                     <constraint firstItem="zuQ-XP-4Q7" firstAttribute="leading" secondItem="Cr0-Ts-jsg" secondAttribute="leading" constant="16" id="oxr-A5-5Mk"/>
+                                    <constraint firstAttribute="trailing" secondItem="NmD-kT-nEi" secondAttribute="trailing" constant="16" id="p41-s2-D7U"/>
                                     <constraint firstItem="OD6-NY-DlK" firstAttribute="top" secondItem="zuQ-XP-4Q7" secondAttribute="bottom" constant="8" id="zu2-Ha-mWK"/>
                                 </constraints>
                             </view>
@@ -340,7 +353,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIO-Vr-83a" userLabel="Compose View">
-                                <rect key="frame" x="0.0" y="140" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Message" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IFY-Kk-QFN">
                                         <rect key="frame" x="8" y="10" width="305" height="30"/>
@@ -377,7 +390,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qjp-lt-rnc">
-                                <rect key="frame" x="0.0" y="190" width="375" height="539"/>
+                                <rect key="frame" x="0.0" y="138" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchTableCell" rowHeight="126" id="qgJ-1J-nq2">
@@ -471,7 +484,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M7e-zg-mgA">
-                                <rect key="frame" x="0.0" y="140" width="375" height="544"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="596"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LIM-6B-fTP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="960"/>
@@ -628,7 +641,7 @@
                                 </constraints>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="180" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="yIn-5e-eCe">
-                                <rect key="frame" x="168" y="353" width="39" height="37"/>
+                                <rect key="frame" x="168" y="301" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.75949871540000002" green="0.21259197590000001" blue="0.1794299483" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pageControl>
@@ -785,7 +798,7 @@
         <image name="text-list-7" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PlX-lW-Ees"/>
+        <segue reference="Ffk-he-abj"/>
         <segue reference="daZ-4k-thG"/>
     </inferredMetricsTieBreakers>
 </document>

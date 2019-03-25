@@ -42,5 +42,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSFaceIDUsageDescription</key>
+	<string>To login using Face/Touch ID</string>
 </dict>
 </plist>

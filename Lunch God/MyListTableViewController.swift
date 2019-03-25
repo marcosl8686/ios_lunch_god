@@ -30,7 +30,7 @@ class MyListTableViewController: UITableViewController {
     var delegate: MyListTableAction?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.parent?.title = "My List"
+        self.navigationItem.title = "My List"
         tableView.register(UINib(nibName: "yelpSearchCell", bundle: nil), forCellReuseIdentifier: "yelpCustomCell")
         tableView.separatorStyle = .none
         retrieveRestList()

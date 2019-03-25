@@ -46,7 +46,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
         searchTableView.register(UINib(nibName: "yelpSearchCell", bundle: nil), forCellReuseIdentifier: "yelpCustomCell")
         searchTableView.separatorStyle = .none
         configureTableView()
-        self.parent?.title = "Search Restaurants"
+        self.navigationItem.title = "Search Restaurants"
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()

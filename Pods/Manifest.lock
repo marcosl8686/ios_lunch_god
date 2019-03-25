@@ -68,6 +68,7 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.7):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.1)
+  - KeychainAccess (3.1.2)
   - leveldb-library (1.20)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
@@ -93,6 +94,7 @@ DEPENDENCIES:
   - Firebase
   - Firebase/Auth
   - Firebase/Database
+  - KeychainAccess
   - Moya
   - RAMAnimatedTabBarController
   - SVProgressHUD
@@ -115,6 +117,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - GTMSessionFetcher
+    - KeychainAccess
     - leveldb-library
     - Moya
     - nanopb
@@ -139,6 +142,7 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 621f3bc6211d5ba548debe01fafad30cf5ab6859
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
@@ -149,6 +153,6 @@ SPEC CHECKSUMS:
   SwipeCellKit: 30fd6a4f8a8b8ac864ea389c8b4c8bac5ba5471a
   YelpAPI: 9ae0ee45b998d306c1aff9b2d966dc23121f191e
 
-PODFILE CHECKSUM: 5e955baf95bb2b1326c51814119629ae37e3bbc0
+PODFILE CHECKSUM: 2ad05aa8dfe81271a1ebadb2621104a52c500f7f
 
 COCOAPODS: 1.5.3

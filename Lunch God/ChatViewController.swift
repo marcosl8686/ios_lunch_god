@@ -25,7 +25,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.parent?.title = "Chat"
+        self.navigationItem.title = "Chat"
         //TODO: Set yourself as the delegate and datasource here:
         messageTableView.delegate = self
         messageTableView.dataSource = self
