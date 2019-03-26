@@ -29,6 +29,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
     var currentLongitute: Double = -118.0120
     @IBOutlet weak var yelpSearchBar: UITextField!
     @IBOutlet var searchTableView: UITableView!
+    @IBOutlet weak var yelpLocation: UITextField!
     var viewModels = [RestaurantListViewModel]() {
         didSet{
             searchTableView.reloadData()
@@ -53,6 +54,8 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        yelpLocation.attributedPlaceholder = NSAttributedString(string: "Current Location",
+                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue])
         
     }
     
@@ -92,7 +95,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     @IBAction func yelpSendBtn(_ sender: Any) {
-        service.request(.search(lat: currentLatitute, long: currentLongitute, term: yelpSearchBar.text!, categories: yelpSearchBar.text!)) { (result) in
+        service.request(.search(lat: currentLatitute, long: currentLongitute, term: yelpSearchBar.text!, categories: yelpSearchBar.text!, location: yelpLocation.text!)) { (result) in
             switch result {
             case .success(let response):
                 let root = try? self.jsonDecoder.decode(Root.self, from: response.data)

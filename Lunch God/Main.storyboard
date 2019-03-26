@@ -69,9 +69,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="qIL-hP-GCy"/>
-                    <connections>
-                        <segue destination="ZlU-v1-cSY" kind="push" identifier="goToFirstPage" id="8ZD-YA-Bbb"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1I-xB-PqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -249,13 +246,13 @@
                     <connections>
                         <outlet property="emailTextfield" destination="ZWF-xv-G1L" id="A9I-P9-2rL"/>
                         <outlet property="passwordTextfield" destination="zuQ-XP-4Q7" id="FBf-fZ-iYp"/>
-                        <outlet property="touchFaceIdBtn" destination="NmD-kT-nEi" id="lQo-4g-t5V"/>
+                        <outlet property="touchFaceIdBtn" destination="NmD-kT-nEi" id="AdX-aV-ibI"/>
                         <segue destination="ZlU-v1-cSY" kind="push" identifier="goToFirstPage" id="Ffk-he-abj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewD-vV-GoZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1086.4000000000001" y="-416.49175412293857"/>
+            <point key="canvasLocation" x="1085.5999999999999" y="-416.74876847290642"/>
         </scene>
         <!--Flash Chat-->
         <scene sceneID="ufC-wZ-h7g">
@@ -328,7 +325,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chat" image="message-7" id="hel-mG-85L"/>
-                    <navigationItem key="navigationItem" title="Flash Chat" id="OGj-fw-WBv"/>
+                    <navigationItem key="navigationItem" title="Flash Chat" largeTitleDisplayMode="never" id="OGj-fw-WBv"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="heightConstraint" destination="dyw-Nc-T3G" id="JPk-pd-pan"/>
@@ -354,12 +351,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIO-Vr-83a" userLabel="Compose View">
-                                <rect key="frame" x="0.0" y="88" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Message" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IFY-Kk-QFN">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Restaurant, Type, etc." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IFY-Kk-QFN">
                                         <rect key="frame" x="8" y="10" width="305" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="send"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="send"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZn-65-D8g">
                                         <rect key="frame" x="321" y="10" width="46" height="30"/>
@@ -391,7 +388,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qjp-lt-rnc">
-                                <rect key="frame" x="0.0" y="138" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="238" width="375" height="491"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchTableCell" rowHeight="126" id="qgJ-1J-nq2">
@@ -404,32 +401,44 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Current Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Gi-Jr-nEY">
+                                <rect key="frame" x="8" y="198" width="305" height="30"/>
+                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.82886213060000002" green="0.1329027414" blue="0.1385883987" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="2Gi-Jr-nEY" firstAttribute="top" secondItem="HIO-Vr-83a" secondAttribute="bottom" constant="8" symbolic="YES" id="4eq-0S-L93"/>
                             <constraint firstItem="HIO-Vr-83a" firstAttribute="top" secondItem="ijU-VP-WbX" secondAttribute="bottom" id="7I9-KY-qBs"/>
+                            <constraint firstItem="ep6-0F-UgP" firstAttribute="top" secondItem="qjp-lt-rnc" secondAttribute="bottom" id="CVs-ig-iGJ"/>
                             <constraint firstItem="HIO-Vr-83a" firstAttribute="top" secondItem="ijU-VP-WbX" secondAttribute="bottom" id="KzK-gC-eKh"/>
-                            <constraint firstItem="qjp-lt-rnc" firstAttribute="top" secondItem="HIO-Vr-83a" secondAttribute="bottom" id="MbC-sh-X1o"/>
-                            <constraint firstItem="qjp-lt-rnc" firstAttribute="leading" secondItem="huZ-ak-R3W" secondAttribute="leading" id="Mw3-qS-hJG"/>
+                            <constraint firstAttribute="trailing" secondItem="qjp-lt-rnc" secondAttribute="trailing" id="MMf-cQ-51p"/>
+                            <constraint firstItem="2Gi-Jr-nEY" firstAttribute="leading" secondItem="huZ-ak-R3W" secondAttribute="leadingMargin" constant="-8" id="X73-St-Tbg"/>
                             <constraint firstAttribute="trailing" secondItem="HIO-Vr-83a" secondAttribute="trailing" id="a7d-3S-gfL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Gi-Jr-nEY" secondAttribute="trailing" constant="46" id="azc-PM-q9f"/>
+                            <constraint firstItem="qjp-lt-rnc" firstAttribute="top" secondItem="2Gi-Jr-nEY" secondAttribute="bottom" constant="10" id="dOP-R1-tF5"/>
                             <constraint firstItem="HIO-Vr-83a" firstAttribute="leading" secondItem="huZ-ak-R3W" secondAttribute="leading" id="iWw-ri-kmu"/>
                             <constraint firstItem="HIO-Vr-83a" firstAttribute="leading" secondItem="huZ-ak-R3W" secondAttribute="leading" id="k9d-3p-RpB"/>
                             <constraint firstAttribute="trailing" secondItem="HIO-Vr-83a" secondAttribute="trailing" id="luD-IO-wVT"/>
-                            <constraint firstItem="ep6-0F-UgP" firstAttribute="top" secondItem="qjp-lt-rnc" secondAttribute="bottom" id="qPy-To-zQM"/>
-                            <constraint firstAttribute="trailing" secondItem="qjp-lt-rnc" secondAttribute="trailing" id="zZR-2h-xPF"/>
+                            <constraint firstItem="qjp-lt-rnc" firstAttribute="leading" secondItem="huZ-ak-R3W" secondAttribute="leading" id="qaw-iT-NXX"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Item" image="paper-piece-plus-7" id="iau-7k-4eu"/>
-                    <navigationItem key="navigationItem" id="gPp-qu-3i9"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="gPp-qu-3i9">
+                        <barButtonItem key="backBarButtonItem" title="d" id="lGM-aR-qt9"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchTableView" destination="qjp-lt-rnc" id="fba-fj-ZDw"/>
+                        <outlet property="yelpLocation" destination="2Gi-Jr-nEY" id="Bkc-C7-Ptq"/>
                         <outlet property="yelpSearchBar" destination="IFY-Kk-QFN" id="B6b-9G-BJI"/>
                         <segue destination="34G-BO-cAQ" kind="push" identifier="goToAddEvent" id="daZ-4k-thG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWW-OJ-Y67" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2726" y="875"/>
+            <point key="canvasLocation" x="2725.5999999999999" y="874.8768472906404"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kGX-IT-aXC">
@@ -677,7 +686,7 @@
                             <outlet property="animation" destination="OHa-LG-12w" id="cMk-To-Gk5"/>
                         </connections>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" id="dod-PF-x8V"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="dod-PF-x8V"/>
                     <connections>
                         <outlet property="datePickerTextField" destination="Gey-GR-x2c" id="Wrl-nG-xuk"/>
                         <outlet property="detailsFoodView" destination="QLQ-2Z-nAa" id="Vfm-kp-VjI"/>
@@ -718,7 +727,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="My List" image="text-list-7" id="Qvd-cJ-Vtb"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="My List" id="ukz-rc-JoS"/>
+                    <navigationItem key="navigationItem" title="My List" largeTitleDisplayMode="never" id="ukz-rc-JoS"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="34G-BO-cAQ" kind="push" identifier="goToAddEvent" id="fjm-OU-gui"/>
@@ -762,7 +771,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZlU-v1-cSY" customClass="MainTabBarController" customModule="Flash_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="W5K-Mh-YXN">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="W5K-Mh-YXN">
                         <barButtonItem key="rightBarButtonItem" title="Calendar" image="calendar-7" id="lWH-6v-K4y">
                             <connections>
                                 <action selector="openCalendarBtn:" destination="ZlU-v1-cSY" id="bM5-0L-qXF"/>
@@ -799,7 +808,7 @@
         <image name="text-list-7" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ffk-he-abj"/>
+        <segue reference="PlX-lW-Ees"/>
         <segue reference="daZ-4k-thG"/>
     </inferredMetricsTieBreakers>
 </document>

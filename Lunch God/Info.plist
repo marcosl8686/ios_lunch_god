@@ -5,9 +5,9 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This application will work better with this on...</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location to find restaurants</string>
+	<string>Lunch God WIll need access to your location to provide Restaurants in your Area</string>
 	<key>NSCalendarsUsageDescription</key>
-	<string>YO! I need to use this OK? So press OK!</string>
+	<string>Lunch God will like to Access Your Calendar to add this event</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

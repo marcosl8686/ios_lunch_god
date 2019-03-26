@@ -68,7 +68,6 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.7):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.1)
-  - KeychainAccess (3.1.2)
   - leveldb-library (1.20)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
@@ -80,7 +79,6 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - RAMAnimatedTabBarController (4.0.1)
   - Result (4.1.0)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.2.0)
@@ -94,9 +92,7 @@ DEPENDENCIES:
   - Firebase
   - Firebase/Auth
   - Firebase/Database
-  - KeychainAccess
   - Moya
-  - RAMAnimatedTabBarController
   - SVProgressHUD
   - SwiftyJSON
   - SwipeCellKit
@@ -117,11 +113,9 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - GTMSessionFetcher
-    - KeychainAccess
     - leveldb-library
     - Moya
     - nanopb
-    - RAMAnimatedTabBarController
     - Result
     - SVProgressHUD
     - SwiftyJSON
@@ -142,17 +136,15 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 621f3bc6211d5ba548debe01fafad30cf5ab6859
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
-  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  RAMAnimatedTabBarController: 677d6f7ec7e88b1089486f4db49b0a5067e8ad1c
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   SwipeCellKit: 30fd6a4f8a8b8ac864ea389c8b4c8bac5ba5471a
   YelpAPI: 9ae0ee45b998d306c1aff9b2d966dc23121f191e
 
-PODFILE CHECKSUM: 2ad05aa8dfe81271a1ebadb2621104a52c500f7f
+PODFILE CHECKSUM: 4b34f3764d341a1683b5180a50ab1651831a6b1a
 
 COCOAPODS: 1.6.1

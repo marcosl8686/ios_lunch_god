@@ -9,7 +9,6 @@ import UIKit
 import Firebase
 import SVProgressHUD
 import LocalAuthentication
-import KeychainAccess
 
 class LogInViewController: UIViewController {
     
@@ -17,7 +16,6 @@ class LogInViewController: UIViewController {
     @IBOutlet var emailTextfield: UITextField!
     @IBOutlet var passwordTextfield: UITextField!
     @IBOutlet weak var touchFaceIdBtn: UIButton!
-    let keychain = Keychain(service: "com.marcoslee.lunch-God")
     override func viewDidLoad() {
         super.viewDidLoad()
         touchFaceIdBtn.isHidden = true
@@ -56,12 +54,17 @@ class LogInViewController: UIViewController {
     }
     
     func saveCredentials() {
-        print("Saving")
-        let username:String = emailTextfield.text!
-        let password:String = passwordTextfield.text!
-        let defaults = UserDefaults.standard
-        defaults.set(username, forKey: "username")
-        defaults.set(password, forKey: "password")
+        let credentialSaved = UserDefaults.standard.bool(forKey: "userSaved")
+        if credentialSaved {
+            print("User already has saved Credentials")
+        } else {
+            let username:String = emailTextfield.text!
+            let password:String = passwordTextfield.text!
+            let defaults = UserDefaults.standard
+            defaults.set(username, forKey: "username")
+            defaults.set(password, forKey: "password")
+            defaults.set(true, forKey: "userSaved")
+        }
     }
     
     func getCredentials() {

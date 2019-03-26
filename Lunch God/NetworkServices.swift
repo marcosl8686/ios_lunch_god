@@ -13,7 +13,7 @@ private let apiKey = "bGZz4X0o65g0mqQjrImYz62mrk3et_ygxV52mVIiipWTVztBDUhth7rghN
 
 enum YelpService {
     enum BusinessProvider: TargetType {
-        case search(lat: Double, long: Double, term: String, categories: String)
+        case search(lat: Double, long: Double, term: String, categories: String, location: String)
         case details(id: String)
         
         var baseURL: URL {
@@ -38,9 +38,15 @@ enum YelpService {
         
         var task: Task {
             switch self {
-            case let .search(lat, long, term, categories):
-                return .requestParameters(
-                    parameters: ["latitude": lat, "longitude": long, "term": term, "limit": 20, "categories": categories], encoding: URLEncoding.queryString)
+            case let .search(lat, long, term, categories, location):
+                if location.count > 0 {
+                    return .requestParameters(
+                        parameters: ["term": term, "limit": 20, "categories": categories, "location": location], encoding: URLEncoding.queryString)
+                } else {
+                    return .requestParameters(
+                        parameters: ["latitude": lat, "longitude": long, "term": term, "limit": 20, "categories": categories], encoding: URLEncoding.queryString)
+                }
+
             case .details:
                 return .requestPlain
             }
