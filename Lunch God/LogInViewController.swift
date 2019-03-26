@@ -16,24 +16,27 @@ class LogInViewController: UIViewController {
     //Textfields pre-linked with IBOutlets
     @IBOutlet var emailTextfield: UITextField!
     @IBOutlet var passwordTextfield: UITextField!
+    @IBOutlet weak var touchFaceIdBtn: UIButton!
     let keychain = Keychain(service: "com.marcoslee.lunch-God")
     override func viewDidLoad() {
         super.viewDidLoad()
+        touchFaceIdBtn.isHidden = true
+        getCredentials()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-   
+    var secretEmail: String = ""
+    var secretPassword: String = ""
+    
     @IBAction func touchIdBtn(_ sender: Any) {
         let context: LAContext = LAContext()
-        
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To Login with Face/Touch ID") { (wasSuccessful, error) in
                 if wasSuccessful {
                     print("Face Touch ID successful")
-//                    self.performSegue(withIdentifier: "goToFirstPage", sender: self)
-                    self.getCredentials()
+                    self.loginWithFB(userEmail: self.secretEmail, userPassword: self.secretPassword)
                 } else {
                     print("Face/TouchID login Failed")
                     let alert = UIAlertController(title: "Failed To Login with Touch/FaceId credentials", message: "Please Try Again!", preferredStyle:.alert)
@@ -54,45 +57,22 @@ class LogInViewController: UIViewController {
     
     func saveCredentials() {
         print("Saving")
-        DispatchQueue.global().async {
-            do {
-                try self.keychain
-                    .accessibility(.whenPasscodeSetThisDeviceOnly, authenticationPolicy: .userPresence)
-                    .set(self.passwordTextfield.text!, key: "userPassword")
-            } catch let error {
-                print(error)
-            }
-            
-            do {
-                try self.keychain
-                    .accessibility(.whenPasscodeSetThisDeviceOnly, authenticationPolicy: .userPresence)
-                    .set(self.emailTextfield.text!, key: "userEmail")
-            } catch let error {
-                print(error)
-            }
-        }
+        let username:String = emailTextfield.text!
+        let password:String = passwordTextfield.text!
+        let defaults = UserDefaults.standard
+        defaults.set(username, forKey: "username")
+        defaults.set(password, forKey: "password")
     }
     
     func getCredentials() {
         print("loading")
-        DispatchQueue.global().async {
-            do {
-                let secretEmail = try self.keychain.authenticationPrompt("Authenticate to find out the userEmail")
-                    .get("userEmail")
-                let secretPassword = try self.keychain.authenticationPrompt("Authenticate to find out the userPassword")
-                    .get("userPassword")
-               self.loginWithFB(userEmail: secretEmail!, userPassword: secretPassword!)
-            } catch let error {
-                print(error)
-            }
-            
-            do {
-                try self.keychain
-                    .accessibility(.whenPasscodeSetThisDeviceOnly, authenticationPolicy: .userPresence)
-                    .set(self.emailTextfield.text!, key: "userEmail")
-            } catch let error {
-                print(error)
-            }
+        let defaults = UserDefaults.standard
+        
+        if let userPassword = defaults.string(forKey: "password") {
+            self.secretEmail = defaults.string(forKey: "username")!
+            self.secretPassword = userPassword
+            self.emailTextfield.text = self.secretEmail
+            touchFaceIdBtn.isHidden = false
         }
     }
     
@@ -110,7 +90,7 @@ class LogInViewController: UIViewController {
             
         }
     }
-
-
+    
+    
     
 }  

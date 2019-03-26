@@ -34,10 +34,12 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
             searchTableView.reloadData()
         }
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        self.navigationItem.setHidesBackButton(true, animated:true);
         searchTableView.delegate = self
         searchTableView.dataSource = self
         //TODO: Set yourself as the delegate of the text field here:
@@ -66,7 +68,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
         cell.YelpSearchType.text = vm.categories
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
     }
@@ -83,19 +85,19 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
             destinationVC.selectedRestaurant = viewModels[indexPath.row]
         }
     }
-
+    
     func configureTableView() {
         searchTableView.rowHeight = UITableView.automaticDimension
         searchTableView.estimatedRowHeight = 200.0
     }
     
     @IBAction func yelpSendBtn(_ sender: Any) {
-        service.request(.search(lat: currentLatitute, long: currentLongitute, term: yelpSearchBar.text!)) { (result) in
+        service.request(.search(lat: currentLatitute, long: currentLongitute, term: yelpSearchBar.text!, categories: yelpSearchBar.text!)) { (result) in
             switch result {
             case .success(let response):
-                let dataTest: JSON = JSON(response.data)
                 let root = try? self.jsonDecoder.decode(Root.self, from: response.data)
                 let viewModel = root?.businesses.compactMap(RestaurantListViewModel.init)
+                print("Yelp Results: \(String(describing: viewModel))")
                 self.viewModels = viewModel ?? []
                 
             case .failure(let error):
@@ -123,13 +125,22 @@ class AddItemViewController: UIViewController, UITextFieldDelegate, UITableViewD
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Zip Code"
             textField = alertTextField
-            
         }
-        
         alert.addAction(action)
         //show Alert
-        
         present(alert, animated: true, completion: nil)
     }
     
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

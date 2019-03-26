@@ -84,14 +84,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                     event.calendar = eventStore.defaultCalendarForNewEvents
                                     let alarm1hour = EKAlarm(relativeOffset: -3600)
                                     event.addAlarm(alarm1hour)
-
+                                    
                                     do {
                                         try eventStore.save(event, span: .thisEvent)
-
+                                        
                                     } catch let error as NSError {
                                         print("Error: \(error)")
                                     }
-
+                                    
                                 } else {
                                     print("Error!: \(error!)")
                                 }

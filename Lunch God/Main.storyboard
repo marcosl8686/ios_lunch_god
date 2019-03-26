@@ -249,6 +249,7 @@
                     <connections>
                         <outlet property="emailTextfield" destination="ZWF-xv-G1L" id="A9I-P9-2rL"/>
                         <outlet property="passwordTextfield" destination="zuQ-XP-4Q7" id="FBf-fZ-iYp"/>
+                        <outlet property="touchFaceIdBtn" destination="NmD-kT-nEi" id="lQo-4g-t5V"/>
                         <segue destination="ZlU-v1-cSY" kind="push" identifier="goToFirstPage" id="Ffk-he-abj"/>
                     </connections>
                 </viewController>

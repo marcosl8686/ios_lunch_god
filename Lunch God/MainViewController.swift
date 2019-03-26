@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
             print("SELECTEDRESTAURANT SET!")
             if let restaurantId = selectedRestaurant {
                 comingFromSearch = true
-                 loadDetails(width: restaurantId.id)
+                loadDetails(width: restaurantId.id)
             }
         }
     }
@@ -151,7 +151,7 @@ class MainViewController: UIViewController {
     }
     
     
-   private func loadDetails(width id: String) {
+    private func loadDetails(width id: String) {
         service.request(.details(id: id)) { (result) in
             switch result {
             case .success(let response):
